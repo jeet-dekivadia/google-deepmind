@@ -48,6 +48,7 @@ Gemini models have very large context windows (up to 2M tokens), but processing 
 - **Batch Processing**: Efficient chunk batching
 - **Cost Tracking**: Real-time token usage and cost monitoring
 - **Fallback Handling**: Graceful degradation on API failures
+- **Video Understanding**: Full support for Gemini's video capabilities
 
 ### 💬 Interactive Q&A
 - **Context-Aware Responses**: Maintains conversation state
@@ -463,7 +464,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Issues**: [GitHub Issues](https://github.com/jeetdekivadia/halo/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/jeetdekivadia/halo/discussions)
-- **Email**: jeet.dekivadia@gmail.com
+- **Email**: jeet.university@gmail.com
 
 ## 📊 Citation
 
