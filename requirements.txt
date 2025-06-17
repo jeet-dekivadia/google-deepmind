@@ -1,0 +1,44 @@
+# Core dependencies
+torch>=2.0.0
+torchaudio>=2.0.0
+transformers>=4.30.0
+sentence-transformers>=2.2.0
+bertopic>=0.15.0
+bert-score>=0.3.13
+
+# Audio processing
+openai-whisper>=20231117
+pyannote.audio>=3.0.0
+librosa>=0.10.0
+soundfile>=0.12.0
+
+# Video processing
+opencv-python>=4.8.0
+scenedetect>=0.6.2
+Pillow>=10.0.0
+
+# Machine Learning
+scikit-learn>=1.3.0
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Caching and storage
+redis>=5.0.0
+fakeredis>=2.20.0
+faiss-cpu>=1.7.4
+pickle5>=0.0.12
+
+# Utilities
+pydantic>=2.0.0
+asyncio-mqtt>=0.16.0
+tqdm>=4.65.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+jupyter>=1.0.0
+ipywidgets>=8.0.0
+
+# Development
+pytest>=7.4.0
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0 
