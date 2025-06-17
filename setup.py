@@ -21,7 +21,7 @@ setup(
     name="halo-video",
     version=get_version(),
     author="Jeet Dekivadia",
-    author_email="jeet.dekivadia@gmail.com",
+    author_email="jeet.university@gmail.com",
     description="Hierarchical Abstraction for Longform Optimization - Optimizing Gemini API Usage for Long-Context Video Analysis",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -85,6 +85,8 @@ setup(
         "multimodal",
         "nlp",
         "computer-vision",
+        "google-deepmind",
+        "gsoc-2025",
     ],
     project_urls={
         "Bug Reports": "https://github.com/jeetdekivadia/halo/issues",

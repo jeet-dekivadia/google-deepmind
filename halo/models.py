@@ -5,7 +5,17 @@ Data models for HALO framework using Pydantic for validation and serialization.
 from datetime import datetime
 from typing import List, Dict, Optional, Any, Union
 from pydantic import BaseModel, Field
-import numpy as np
+
+# Optional numpy import for basic functionality
+try:
+    import numpy as np
+    NUMPY_AVAILABLE = True
+except ImportError:
+    NUMPY_AVAILABLE = False
+    # Create a placeholder for numpy.ndarray
+    class np:
+        class ndarray:
+            pass
 
 
 class VideoMetadata(BaseModel):
@@ -68,10 +78,10 @@ class VideoChunk(BaseModel):
     scenes: List[SceneSegment] = Field(default_factory=list)
     topics: List[TopicSegment] = Field(default_factory=list)
     
-    # Features
-    embeddings: Optional[np.ndarray] = Field(None, description="Text embeddings")
-    audio_features: Optional[np.ndarray] = Field(None, description="Audio features")
-    visual_features: Optional[np.ndarray] = Field(None, description="Visual features")
+    # Features (optional numpy arrays)
+    embeddings: Optional[Any] = Field(None, description="Text embeddings")
+    audio_features: Optional[Any] = Field(None, description="Audio features")
+    visual_features: Optional[Any] = Field(None, description="Visual features")
     
     # Chunking metadata
     chunking_method: str = Field(..., description="Method used for chunking")
@@ -180,7 +190,7 @@ class CacheConfig(BaseModel):
 class GeminiConfig(BaseModel):
     """Configuration for Gemini API integration."""
     api_key: Optional[str] = Field(None, description="Gemini API key")
-    model_name: str = Field("gemini-1.5-flash", description="Gemini model to use")
+    model_name: str = Field("gemini-2.0-flash", description="Gemini model to use")
     max_tokens: int = Field(8192, description="Maximum tokens per request")
     temperature: float = Field(0.1, description="Sampling temperature")
     
@@ -189,5 +199,5 @@ class GeminiConfig(BaseModel):
     max_batch_tokens: int = Field(32000, description="Maximum tokens per batch")
     
     # Fallback
-    fallback_model: str = Field("gemini-1.5-pro", description="Fallback model")
+    fallback_model: str = Field("gemini-2.0-pro", description="Fallback model")
     use_mock: bool = Field(True, description="Use mock responses for development") 
