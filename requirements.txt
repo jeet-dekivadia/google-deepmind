@@ -6,6 +6,9 @@ sentence-transformers>=2.2.0
 bertopic>=0.15.0
 bert-score>=0.3.13
 
+# Google AI
+google-generativeai>=0.3.0
+
 # Audio processing
 openai-whisper>=20231117
 pyannote.audio>=3.0.0

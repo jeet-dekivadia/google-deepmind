@@ -69,12 +69,73 @@ Gemini models have very large context windows (up to 2M tokens), but processing 
 git clone https://github.com/jeetdekivadia/halo.git
 cd halo
 
+# Create virtual environment (recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
 # Install dependencies
 pip install -r requirements.txt
 
 # Install in development mode
 pip install -e .
 ```
+
+### 🔐 API Key Configuration
+
+HALO requires API keys for full functionality. Configure them securely:
+
+#### Option 1: Environment Variables (Recommended)
+
+```bash
+# Set your API keys as environment variables
+export GEMINI_API_KEY="your_gemini_api_key_here"
+export HF_TOKEN="your_huggingface_token_here"
+
+# For Windows (PowerShell)
+$env:GEMINI_API_KEY="your_gemini_api_key_here"
+$env:HF_TOKEN="your_huggingface_token_here"
+
+# For Windows (Command Prompt)
+set GEMINI_API_KEY=your_gemini_api_key_here
+set HF_TOKEN=your_huggingface_token_here
+```
+
+#### Option 2: Configuration File
+
+Create a `.env` file in the project root:
+
+```bash
+# .env file
+GEMINI_API_KEY=your_gemini_api_key_here
+HF_TOKEN=your_huggingface_token_here
+```
+
+#### Option 3: Direct Configuration (Development Only)
+
+```python
+from halo.config import HALOConfig
+
+config = HALOConfig(
+    gemini_api_key="your_gemini_api_key_here",
+    hf_token="your_huggingface_token_here",
+    use_mock_responses=False  # Set to True for development without API calls
+)
+```
+
+### 🔑 Getting API Keys
+
+#### Gemini API Key
+1. Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Sign in with your Google account
+3. Click "Create API Key"
+4. Copy the generated key
+
+#### HuggingFace Token (for speaker diarization)
+1. Visit [HuggingFace](https://huggingface.co/settings/tokens)
+2. Sign in or create an account
+3. Click "New token"
+4. Select "Read" role
+5. Copy the generated token
 
 ### Optional Dependencies
 
@@ -89,8 +150,11 @@ export HF_TOKEN="your_token_here"
 ### Basic Usage
 
 ```python
-from halo import HALOPipeline
+from halo import HALOPipeline, load_config
 from halo.models import ChunkingConfig, CacheConfig, GeminiConfig
+
+# Load configuration (automatically picks up environment variables)
+config = load_config()
 
 # Configure pipeline
 chunking_config = ChunkingConfig(
@@ -105,8 +169,9 @@ cache_config = CacheConfig(
 )
 
 gemini_config = GeminiConfig(
+    api_key=config.gemini_api_key,
     model_name="gemini-1.5-flash",
-    use_mock=True              # Use mock responses for development
+    use_mock=config.use_mock_responses
 )
 
 # Initialize pipeline
@@ -377,7 +442,7 @@ flake8 halo/
 ### Phase 4 (Q4 2025)
 - 📋 Enterprise features
 - 📋 Advanced analytics
-- �� Integration APIs
+- 📋 Integration APIs
 - 📋 Mobile support
 - 📋 Community features
 

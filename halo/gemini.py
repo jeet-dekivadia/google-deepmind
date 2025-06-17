@@ -8,11 +8,13 @@ batching, fallback models, and mock responses for development.
 import logging
 import time
 import hashlib
+import os
 from typing import List, Dict, Any, Optional, Union
 import asyncio
 from datetime import datetime
 
 from .models import GeminiConfig, ProcessingResult, VideoChunk
+from .config import get_config
 
 logger = logging.getLogger(__name__)
 
@@ -20,13 +22,22 @@ logger = logging.getLogger(__name__)
 class GeminiAPI:
     """Interface for Gemini API with caching and batching support."""
     
-    def __init__(self, config: GeminiConfig):
+    def __init__(self, config: Optional[GeminiConfig] = None):
         """
         Initialize the Gemini API interface.
         
         Args:
-            config: Gemini API configuration
+            config: Gemini API configuration (optional, uses global config if not provided)
         """
+        if config is None:
+            # Use global configuration
+            global_config = get_config()
+            config = GeminiConfig(
+                api_key=global_config.gemini_api_key,
+                model_name=global_config.gemini_model,
+                use_mock=global_config.use_mock_responses
+            )
+        
         self.config = config
         self.client = None
         
@@ -43,17 +54,36 @@ class GeminiAPI:
         # Batch processing
         self.batch_queue = []
         self.batch_timer = None
+        
+        # Usage tracking
+        self.total_tokens = 0
+        self.total_cost = 0.0
+        self.api_calls = 0
+        
+        logger.info(f"Gemini API initialized with model: {config.model_name}")
+        logger.info(f"Mock mode: {config.use_mock}")
     
     def _initialize_client(self):
         """Initialize the actual Gemini client."""
         try:
-            # This would be the actual Gemini client initialization
-            # For now, we'll use a placeholder
             if self.config.api_key:
-                logger.info("Gemini client initialized with API key")
-                # import google.generativeai as genai
-                # genai.configure(api_key=self.config.api_key)
-                # self.client = genai.GenerativeModel(self.config.model_name)
+                logger.info("Initializing Gemini client with API key")
+                
+                # Set environment variable for the API key
+                os.environ['GOOGLE_API_KEY'] = self.config.api_key
+                
+                # Import and configure the actual Gemini client
+                try:
+                    import google.generativeai as genai
+                    genai.configure(api_key=self.config.api_key)
+                    self.client = genai.GenerativeModel(self.config.model_name)
+                    logger.info("Gemini client initialized successfully")
+                except ImportError:
+                    logger.warning("google-generativeai not installed, using mock mode")
+                    self.config.use_mock = True
+                except Exception as e:
+                    logger.error(f"Error initializing Gemini client: {e}")
+                    self.config.use_mock = True
             else:
                 logger.warning("No API key provided, using mock responses")
                 self.config.use_mock = True
@@ -93,6 +123,11 @@ class GeminiAPI:
             
             # Calculate cost
             cost = self._calculate_cost(estimated_tokens, model_used)
+            
+            # Update usage tracking
+            self.total_tokens += estimated_tokens
+            self.total_cost += cost
+            self.api_calls += 1
             
             processing_time = time.time() - start_time
             
@@ -276,9 +311,40 @@ Format your response in a clear, structured manner.
     
     def _call_gemini_api(self, prompt: str) -> str:
         """Make actual call to Gemini API."""
-        # This would be the actual API call
-        # For now, return a placeholder
-        raise NotImplementedError("Actual Gemini API calls not implemented in this MVP")
+        if self.config.use_mock:
+            return self._generate_mock_response_generic(prompt)
+        
+        if not self.client:
+            logger.warning("Gemini client not available, using mock response")
+            return self._generate_mock_response_generic(prompt)
+        
+        try:
+            # Make the actual API call
+            response = self.client.generate_content(prompt)
+            
+            if response and hasattr(response, 'text'):
+                return response.text
+            else:
+                logger.warning("Empty response from Gemini API, using mock")
+                return self._generate_mock_response_generic(prompt)
+                
+        except Exception as e:
+            logger.error(f"Error calling Gemini API: {e}")
+            logger.info("Falling back to mock response")
+            return self._generate_mock_response_generic(prompt)
+    
+    def _generate_mock_response_generic(self, prompt: str) -> str:
+        """Generate a generic mock response for any prompt."""
+        # Extract key information from prompt for more realistic mock responses
+        if "Question:" in prompt:
+            # This is a question-answering prompt
+            return f"Mock response to question: Based on the provided content, here is a comprehensive answer that addresses the key points raised in the question. The analysis shows important insights and relevant information."
+        elif "SEGMENT" in prompt:
+            # This is a batch processing prompt
+            return "Mock batch response: Each segment has been analyzed and contains relevant information. Key insights have been identified and summarized appropriately."
+        else:
+            # This is a general analysis prompt
+            return "Mock analysis response: The content has been thoroughly analyzed. Key points include important information about the topic discussed, with relevant insights and observations."
     
     def _generate_mock_response(self, chunk: VideoChunk, query: Optional[str] = None) -> str:
         """Generate mock response for development."""
