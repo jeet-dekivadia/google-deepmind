@@ -1,3 +1,92 @@
+Metadata-Version: 2.4
+Name: halo-video
+Version: 0.1.0
+Summary: Hierarchical Abstraction for Longform Optimization - Optimizing Gemini API Usage for Long-Context Video Analysis
+Home-page: https://github.com/jeetdekivadia/halo
+Author: Jeet Dekivadia
+Author-email: jeet.university@gmail.com
+Project-URL: Bug Reports, https://github.com/jeetdekivadia/halo/issues
+Project-URL: Source, https://github.com/jeetdekivadia/halo
+Project-URL: Documentation, https://github.com/jeetdekivadia/halo#readme
+Keywords: video-analysis,gemini-api,long-form-content,semantic-chunking,caching,machine-learning,artificial-intelligence,multimodal,nlp,computer-vision
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Multimedia :: Video
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Text Processing :: Linguistic
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch>=2.0.0
+Requires-Dist: torchaudio>=2.0.0
+Requires-Dist: transformers>=4.30.0
+Requires-Dist: sentence-transformers>=2.2.0
+Requires-Dist: bertopic>=0.15.0
+Requires-Dist: bert-score>=0.3.13
+Requires-Dist: google-generativeai>=0.3.0
+Requires-Dist: openai-whisper>=20231117
+Requires-Dist: pyannote.audio>=3.0.0
+Requires-Dist: librosa>=0.10.0
+Requires-Dist: soundfile>=0.12.0
+Requires-Dist: opencv-python>=4.8.0
+Requires-Dist: scenedetect>=0.6.2
+Requires-Dist: Pillow>=10.0.0
+Requires-Dist: scikit-learn>=1.3.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: scipy>=1.10.0
+Requires-Dist: redis>=5.0.0
+Requires-Dist: fakeredis>=2.20.0
+Requires-Dist: faiss-cpu>=1.7.4
+Requires-Dist: pickle5>=0.0.12
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: asyncio-mqtt>=0.16.0
+Requires-Dist: tqdm>=4.65.0
+Requires-Dist: matplotlib>=3.7.0
+Requires-Dist: seaborn>=0.12.0
+Requires-Dist: jupyter>=1.0.0
+Requires-Dist: ipywidgets>=8.0.0
+Requires-Dist: pytest>=7.4.0
+Requires-Dist: black>=23.0.0
+Requires-Dist: flake8>=6.0.0
+Requires-Dist: mypy>=1.5.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: mypy>=1.5.0; extra == "dev"
+Requires-Dist: pre-commit>=3.0.0; extra == "dev"
+Provides-Extra: demo
+Requires-Dist: jupyter>=1.0.0; extra == "demo"
+Requires-Dist: ipywidgets>=8.0.0; extra == "demo"
+Requires-Dist: matplotlib>=3.7.0; extra == "demo"
+Requires-Dist: seaborn>=0.12.0; extra == "demo"
+Provides-Extra: full
+Requires-Dist: redis>=5.0.0; extra == "full"
+Requires-Dist: google-generativeai>=0.3.0; extra == "full"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
 # HALO - Hierarchical Abstraction for Longform Optimization
 
 **Optimizing Gemini API Usage for Long-Context Video Analysis**
@@ -48,6 +137,7 @@ Gemini models have very large context windows (up to 2M tokens), but processing 
 - **Batch Processing**: Efficient chunk batching
 - **Cost Tracking**: Real-time token usage and cost monitoring
 - **Fallback Handling**: Graceful degradation on API failures
+- **Video Understanding**: Full support for Gemini's video capabilities
 
 ### 💬 Interactive Q&A
 - **Context-Aware Responses**: Maintains conversation state
@@ -463,7 +553,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Issues**: [GitHub Issues](https://github.com/jeetdekivadia/halo/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/jeetdekivadia/halo/discussions)
-- **Email**: jeet.dekivadia@gmail.com
+- **Email**: jeet.university@gmail.com
 
 ## 📊 Citation
 
