@@ -1,207 +1,188 @@
-"""
-Command-line interface for HALO framework.
-
-This module provides a CLI for running the HALO pipeline on videos
-and interacting with the results.
-"""
-
-import argparse
-import logging
 import sys
-from pathlib import Path
-from typing import Optional
+import os
+if __name__ == "__main__":
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from .pipeline import HALOPipeline
-from .models import ChunkingConfig, CacheConfig, GeminiConfig
+"""
+HALO Interactive CLI for Gemini batch prediction with YouTube video, chunking, and caching.
+Beautiful, conversational, and cost-efficient.
+"""
+import asyncio
+import json
+import tempfile
+from typing import List, Dict, Any
+import yt_dlp
+import ffmpeg
+import whisper
+from rich.console import Console
+from rich.table import Table
+from rich.panel import Panel
+from rich.prompt import Prompt
+from rich.text import Text
+from rich.progress import Progress, SpinnerColumn, TextColumn
+from rich.align import Align
+from rich import box
+from halo.gemini_batch_predictor import GeminiBatchPredictor
+from halo.transcript_utils import chunk_transcript, find_relevant_chunk
+from config import GEMINI_API_KEY
 
-logger = logging.getLogger(__name__)
+console = Console()
 
+HALO_BANNER = '''
+[bold cyan]
+........................................................................
+.  _   _    _    _     ___   
+. | | | |  / \  | |   / _ \  
+. | |_| | / _ \ | |  | | | | 
+. |  _  |/ ___ \| |__| |_| | 
+. |_| |_/_/   \_\____|\___/  
+........................................................................
+[/bold cyan]
+'''
 
-def setup_logging(verbose: bool = False):
-    """Setup logging configuration."""
-    level = logging.DEBUG if verbose else logging.INFO
-    logging.basicConfig(
-        level=level,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        handlers=[
-            logging.StreamHandler(sys.stdout)
-        ]
-    )
+# Helper: Estimate tokens (roughly 1 token ≈ 4 chars)
+def estimate_tokens(text: str) -> int:
+    return max(1, len(text) // 4)
 
+# Helper: Download YouTube video and extract audio
+def extract_video_id(youtube_url: str) -> str:
+    """Extracts the video ID from a YouTube URL."""
+    import re
+    match = re.search(r"(?:v=|youtu.be/)([\w-]+)", youtube_url)
+    return match.group(1) if match else "unknown"
 
-def create_parser() -> argparse.ArgumentParser:
-    """Create command-line argument parser."""
-    parser = argparse.ArgumentParser(
-        description="HALO - Hierarchical Abstraction for Longform Optimization",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Examples:
-  # Process a video with default settings
-  halo process video.mp4
+async def download_youtube_audio(youtube_url: str, output_dir: str) -> str:
+    ydl_opts = {
+        'format': 'bestaudio/best',
+        'outtmpl': os.path.join(output_dir, '%(id)s.%(ext)s'),
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'wav',
+            'preferredquality': '192',
+        }],
+        'quiet': True,
+    }
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        info = ydl.extract_info(youtube_url, download=True)
+        audio_path = ydl.prepare_filename(info).rsplit('.', 1)[0] + '.wav'
+    return audio_path
 
-  # Process with specific query
-  halo process video.mp4 --query "What are the main topics discussed?"
+# Helper: Transcribe audio using Whisper
+async def transcribe_audio(audio_path: str) -> str:
+    model = whisper.load_model("base")
+    result = model.transcribe(audio_path)
+    return result["text"]
 
-  # Use RL-based chunking
-  halo process video.mp4 --use-rl-chunker
+# Interactive CLI
+async def interactive_cli():
+    console.clear()
+    console.print(HALO_BANNER)
+    console.print(Align.center("[bold magenta]Welcome to the HALO Interactive Video QA System![/bold magenta]", vertical="middle"))
+    console.print(Align.center("[green]Ask deep questions about any YouTube video, cost-efficiently.[/green]", vertical="middle"))
+    console.print("\n[bold blue]Tip:[/bold blue] Paste a YouTube link and press Enter. Type 'exit' anytime to quit.")
+    console.rule("[bold cyan]START[/bold cyan]")
+    youtube_url = Prompt.ask("[bold yellow]Enter YouTube video link[/bold yellow]").strip()
+    if not youtube_url:
+        console.print("[bold red][ERROR] No URL provided.[/bold red]")
+        return
+    video_id = extract_video_id(youtube_url)
+    with tempfile.TemporaryDirectory() as tmpdir:
+        with Progress(SpinnerColumn(), TextColumn("[progress.description]{task.description}"), transient=True) as progress:
+            progress.add_task(description=f"Downloading audio for video ID: {video_id}...", total=None)
+            audio_path = await download_youtube_audio(youtube_url, tmpdir)
+        console.print(f"[green][INFO] Audio saved to {audio_path}[/green]")
+        with Progress(SpinnerColumn(), TextColumn("[progress.description]{task.description}"), transient=True) as progress:
+            progress.add_task(description="Transcribing audio (this may take a while)...", total=None)
+            transcript = await transcribe_audio(audio_path)
+        console.print("[bold green][INFO] Transcript ready. You can now ask questions![/bold green]")
+        chunks = chunk_transcript(transcript, max_tokens=4000, overlap=500)
+        total_tokens_full = estimate_tokens(transcript)
+        total_tokens_sent = 0
+        total_tokens_saved = 0
+        cache_hits = 0
+        cache_lookups = 0
+        question_history = []
+        console.print(Panel(f"[b]Video ID:[/b] {video_id}\n[b]Transcript length:[/b] {len(transcript)} chars, ~{total_tokens_full} tokens\n[b]Chunks created:[/b] {len(chunks)} (chunk size ~4000 tokens)", title="[bold magenta]VIDEO INFO[/bold magenta]", box=box.DOUBLE))
+        console.print("[bold blue]Type your question and press Enter. Type 'exit' to quit.[/bold blue]\n")
+        predictor = GeminiBatchPredictor(api_key=GEMINI_API_KEY, use_persistent_cache=True)
+        try:
+            while True:
+                if question_history:
+                    console.print(Panel("\n".join([f"[bold cyan]Q{idx+1}:[/bold cyan] {q}" for idx, q in enumerate(question_history)]), title="[bold yellow]Your Question History[/bold yellow]", style="yellow", box=box.ROUNDED))
+                question = Prompt.ask("[bold yellow]\nAsk a question about the video[/bold yellow]").strip()
+                if question.lower() in ("exit", "quit"): break
+                question_history.append(question)
+                console.rule("[bold cyan]PROCESS: Semantic Chunking & Context Selection[/bold cyan]")
+                context = find_relevant_chunk(question, chunks)
+                context_tokens = estimate_tokens(context)
+                console.print(f"[bold]Selected chunk size:[/bold] {context_tokens} tokens (vs. {total_tokens_full} for full transcript)")
+                console.print("[bold]Checking cache...[/bold]")
+                cache_key = predictor._make_cache_key(video_id, question, context)
+                cached = None
+                if hasattr(predictor.cache, 'get'):
+                    cached = predictor.cache.get(cache_key)
+                    if asyncio.iscoroutine(cached):
+                        cached = await cached
+                cache_lookups += 1
+                if cached:
+                    cache_hits += 1
+                    console.print(Panel(cached, title="[bold green]ANSWER (from cache)[/bold green]", style="green", box=box.ROUNDED))
+                    tokens_saved = total_tokens_full - context_tokens
+                    if tokens_saved > 0:
+                        console.print(f"[bold green]Tokens saved this question:[/bold green] {tokens_saved}")
+                    else:
+                        console.print(f"[bold yellow]No tokens saved: full context was used.[/bold yellow]")
+                    console.print(f"[bold green]Running total tokens saved:[/bold green] {total_tokens_saved + tokens_saved}")
+                    total_tokens_saved += tokens_saved
+                    continue
+                with Progress(SpinnerColumn(), TextColumn("[progress.description]{task.description}"), transient=True) as progress:
+                    progress.add_task(description="Sending context to Gemini API...", total=None)
+                    questions = [{"question": question}]
+                    results = await predictor.predict_batch(context, questions, use_chunking=False, video_id=video_id, context_override=context)
+                console.print(Panel(results[0]["answer"], title="[bold blue]ANSWER[/bold blue]", style="blue", box=box.ROUNDED))
+                total_tokens_sent += context_tokens
+                tokens_saved = total_tokens_full - context_tokens
+                if tokens_saved > 0:
+                    console.print(f"[bold cyan]Tokens saved this question:[/bold cyan] {tokens_saved}")
+                else:
+                    console.print(f"[bold yellow]No tokens saved: full context was used.[/bold yellow]")
+                console.print(f"[bold cyan]Running total tokens saved:[/bold cyan] {total_tokens_saved + tokens_saved}")
+                total_tokens_saved += tokens_saved
+                followup = Prompt.ask("[bold yellow]Is the answer satisfactory? (y/n)[/bold yellow]").strip().lower()
+                if followup == 'n':
+                    console.print("[bold magenta][INFO] Expanding context to more chunks...[/bold magenta]")
+                    scored_chunks = [(c, sum(c.lower().count(k) for k in question.lower().split())) for c in chunks]
+                    top_chunks = sorted(scored_chunks, key=lambda x: -x[1])[:3]
+                    merged_context = '\n'.join([c[0] for c in top_chunks])
+                    merged_tokens = estimate_tokens(merged_context)
+                    with Progress(SpinnerColumn(), TextColumn("[progress.description]{task.description}"), transient=True) as progress:
+                        progress.add_task(description="Sending expanded context to Gemini API...", total=None)
+                        results = await predictor.predict_batch(merged_context, questions, use_chunking=False, video_id=video_id, context_override=merged_context)
+                    console.print(Panel(results[0]["answer"], title="[bold magenta]EXPANDED ANSWER[/bold magenta]", style="magenta", box=box.ROUNDED))
+                    total_tokens_sent += merged_tokens
+                    tokens_saved = total_tokens_full - merged_tokens
+                    if tokens_saved > 0:
+                        console.print(f"[bold magenta]Tokens saved (expanded):[/bold magenta] {tokens_saved}")
+                    else:
+                        console.print(f"[bold yellow]No tokens saved: full context was used.[/bold yellow]")
+                    console.print(f"[bold magenta]Running total tokens saved:[/bold magenta] {total_tokens_saved + tokens_saved}")
+                    total_tokens_saved += tokens_saved
+        finally:
+            await predictor.close()
+        # Show summary dashboard
+        console.rule("[bold green]SESSION SUMMARY[/bold green]")
+        table = Table(title="Gemini API Usage Summary", show_lines=True, box=box.DOUBLE)
+        table.add_column("Metric", style="bold")
+        table.add_column("Value", style="cyan")
+        table.add_row("Total tokens sent", str(total_tokens_sent))
+        table.add_row("Total tokens saved", str(total_tokens_saved))
+        table.add_row("Cache lookups", str(cache_lookups))
+        table.add_row("Cache hits", str(cache_hits))
+        hit_rate = f"{(cache_hits / cache_lookups * 100):.1f}%" if cache_lookups else "0%"
+        table.add_row("Cache hit rate", hit_rate)
+        console.print(table)
+        console.print(Align.center("[bold cyan]Thank you for using HALO![/bold cyan]", vertical="middle"))
+        console.print(Align.center("[green]Goodbye![/green]", vertical="middle"))
 
-  # Ask a question about processed video
-  halo ask video.mp4 "What was the conclusion?"
-
-  # Export results to JSON
-  halo process video.mp4 --export results.json
-        """
-    )
-    
-    subparsers = parser.add_subparsers(dest='command', help='Available commands')
-    
-    # Process command
-    process_parser = subparsers.add_parser('process', help='Process a video through HALO pipeline')
-    process_parser.add_argument('video_path', help='Path to input video file')
-    process_parser.add_argument('--query', help='Optional query to ask about the video')
-    process_parser.add_argument('--use-rl-chunker', action='store_true', help='Use RL-based chunking')
-    process_parser.add_argument('--export', help='Export results to JSON file')
-    process_parser.add_argument('--verbose', '-v', action='store_true', help='Enable verbose logging')
-    
-    # Ask command
-    ask_parser = subparsers.add_parser('ask', help='Ask a question about a processed video')
-    ask_parser.add_argument('video_path', help='Path to input video file')
-    ask_parser.add_argument('question', help='Question to ask about the video')
-    ask_parser.add_argument('--verbose', '-v', action='store_true', help='Enable verbose logging')
-    
-    # Cache command
-    cache_parser = subparsers.add_parser('cache', help='Manage cache')
-    cache_parser.add_argument('action', choices=['clear', 'stats'], help='Cache action')
-    cache_parser.add_argument('--verbose', '-v', action='store_true', help='Enable verbose logging')
-    
-    return parser
-
-
-def process_video(args) -> int:
-    """Process a video through the HALO pipeline."""
-    video_path = Path(args.video_path)
-    
-    if not video_path.exists():
-        logger.error(f"Video file not found: {video_path}")
-        return 1
-    
-    try:
-        # Initialize pipeline
-        pipeline = HALOPipeline()
-        
-        # Process video
-        logger.info(f"Processing video: {video_path}")
-        chunks, results, metrics = pipeline.process_video(
-            str(video_path),
-            query=args.query,
-            use_rl_chunker=args.use_rl_chunker
-        )
-        
-        # Export results if requested
-        if args.export:
-            pipeline.export_results(args.export)
-            logger.info(f"Results exported to: {args.export}")
-        
-        return 0
-        
-    except Exception as e:
-        logger.error(f"Error processing video: {e}")
-        return 1
-
-
-def ask_question(args) -> int:
-    """Ask a question about a video."""
-    video_path = Path(args.video_path)
-    
-    if not video_path.exists():
-        logger.error(f"Video file not found: {video_path}")
-        return 1
-    
-    try:
-        # Initialize pipeline
-        pipeline = HALOPipeline()
-        
-        # Process video first (if not already processed)
-        logger.info(f"Processing video: {video_path}")
-        chunks, results, metrics = pipeline.process_video(str(video_path))
-        
-        # Ask question
-        logger.info(f"Asking question: {args.question}")
-        answer = pipeline.ask_question(args.question)
-        
-        # Print answer
-        print("\n" + "="*60)
-        print("QUESTION ANSWER")
-        print("="*60)
-        print(f"Question: {args.question}")
-        print(f"Answer: {answer.response_text}")
-        print(f"Processing time: {answer.processing_time:.2f}s")
-        print(f"Tokens used: {answer.tokens_used:,}")
-        print(f"Cost: ${answer.cost:.4f}")
-        print("="*60)
-        
-        return 0
-        
-    except Exception as e:
-        logger.error(f"Error asking question: {e}")
-        return 1
-
-
-def manage_cache(args) -> int:
-    """Manage cache operations."""
-    try:
-        pipeline = HALOPipeline()
-        
-        if args.action == 'clear':
-            pipeline.clear_cache()
-            logger.info("Cache cleared successfully")
-        elif args.action == 'stats':
-            stats = pipeline.get_cache_stats()
-            print("\n" + "="*40)
-            print("CACHE STATISTICS")
-            print("="*40)
-            print(f"Total Requests: {stats['total_requests']}")
-            print(f"L1 Hits: {stats['l1_hits']}")
-            print(f"L2 Hits: {stats['l2_hits']}")
-            print(f"L3 Hits: {stats['l3_hits']}")
-            print(f"Misses: {stats['misses']}")
-            print(f"Hit Rate: {stats['hit_rate']:.2%}")
-            print(f"L1 Size: {stats['l1_size']}")
-            print(f"L2 Size: {stats['l2_size']}")
-            print(f"L3 Size: {stats['l3_size']}")
-            print(f"Total Size: {stats['total_size']}")
-            print("="*40)
-        
-        return 0
-        
-    except Exception as e:
-        logger.error(f"Error managing cache: {e}")
-        return 1
-
-
-def main():
-    """Main CLI entry point."""
-    parser = create_parser()
-    args = parser.parse_args()
-    
-    if not args.command:
-        parser.print_help()
-        return 1
-    
-    # Setup logging
-    setup_logging(args.verbose)
-    
-    # Execute command
-    if args.command == 'process':
-        return process_video(args)
-    elif args.command == 'ask':
-        return ask_question(args)
-    elif args.command == 'cache':
-        return manage_cache(args)
-    else:
-        logger.error(f"Unknown command: {args.command}")
-        return 1
-
-
-if __name__ == '__main__':
-    sys.exit(main()) 
+if __name__ == "__main__":
+    asyncio.run(interactive_cli()) 
