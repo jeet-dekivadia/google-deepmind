@@ -1,7 +1,5 @@
 # HALO: Hierarchical Abstraction for Longform Optimization
 
-> **📋 GSoC Progress Tracker**: Complete project timeline and accountability document used throughout GSoC 2025: [**View Progress Tracker**](https://docs.google.com/document/d/1QOIEO70PyZwIOS5W2nZWcum9mdTPrMzWScX19IaovIE/edit?usp=sharing)
-
 <div align="center">
   <a href="https://pypi.org/project/halo-video/">
     <img src="https://img.shields.io/badge/PyPI-halo--video-blue.svg?style=for-the-badge&logo=pypi&logoColor=white" alt="PyPI">
@@ -27,6 +25,9 @@
 </p>
 
 ---
+
+> **📋 GSoC Progress Tracker**: Complete project timeline and accountability document used throughout GSoC 2025: [**View Progress Tracker**](https://docs.google.com/document/d/1QOIEO70PyZwIOS5W2nZWcum9mdTPrMzWScX19IaovIE/edit?usp=sharing)
+
 
 ## 🎯 Project Overview
 
