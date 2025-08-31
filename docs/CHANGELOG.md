@@ -7,12 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.5] - 2025-08-30 - Final GSoC Submission
 
-### 🎓 **Final GSoC Submission Release**
+### **Final GSoC Submission Release**
 - **Comprehensive PyPI Experience**: Complete overhaul of package presentation and documentation
 - **Professional README**: Detailed project description with academic context and technical specifications
 - **Contact Information**: Updated with correct email (jeet.university@gmail.com) and repository links
 - **Repository Links**: Proper linking to https://github.com/jeet-dekivadia/google-deepmind
-- 📖 **Enhanced Documentation**: Comprehensive contributing guide and project information
+- **Enhanced Documentation**: Comprehensive contributing guide and project information
 
 ### Improved
 - **Project Description**: Clear explanation of HALO's purpose and optimization benefits

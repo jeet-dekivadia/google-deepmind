@@ -1,4 +1,4 @@
-# 🌟 HALO Video 🎥
+# HALO Video
 
 <div align="center">
   <img src="https://img.shields.io/badge/PyPI-halo--video-blue.svg?style=for-the-badge&logo=pypi&logoColor=white" alt="PyPI">
@@ -12,7 +12,7 @@
   <img src="https://img.shields.io/badge/Google-Gemini%20AI-4285f4.svg?style=for-the-badge&logo=google&logoColor=white" alt="Google Gemini">
 </div>
 
-<h3 align="center">🤖 Advanced YouTube Video Analysis with Google's Multi-Modal AI Technology</h3>
+<h3 align="center">Advanced YouTube Video Analysis with Google's Multi-Modal AI Technology</h3>
 
 <p align="center"><b>A Google DeepMind Technology | Powered by Google Gemini | Built with Python</b></p>
 
@@ -20,20 +20,20 @@ I've developed HALO Video as a sophisticated tool for comprehensive video analys
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-🎵 **Comprehensive Audio Analysis** - Advanced audio processing and understanding  
-👁️ **Visual Content Processing** - Sophisticated video content analysis using Gemini Vision API  
-🤖 **Multi-Modal AI Integration** - Combined audio-visual understanding for complete context  
-💾 **Intelligent Caching System** - My custom caching system minimizes API calls and costs  
-⚡ **High-Performance Processing** - Optimized for efficiency without storing large files  
-🎨 **Professional Interface** - Rich terminal interface with progress tracking and styled output  
-🔐 **Secure Operations** - API keys stored securely in your home directory  
-🌍 **Cross-Platform Compatibility** - Works seamlessly on Windows, macOS, and Linux  
+**Comprehensive Audio Analysis** - Advanced audio processing and understanding  
+**Visual Content Processing** - Sophisticated video content analysis using Gemini Vision API  
+**Multi-Modal AI Integration** - Combined audio-visual understanding for complete context  
+**Intelligent Caching System** - My custom caching system minimizes API calls and costs  
+**High-Performance Processing** - Optimized for efficiency without storing large files  
+**Professional Interface** - Rich terminal interface with progress tracking and styled output  
+**Secure Operations** - API keys stored securely in your home directory  
+**Cross-Platform Compatibility** - Works seamlessly on Windows, macOS, and Linux  
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -55,19 +55,19 @@ On first run, you'll be prompted to enter your [Google Gemini API key](https://m
 $ halo-video
 
      ╭─────────────────────────────────────────╮
-     │  🎥 HALO Interactive Video QA System   │
+     │  HALO Interactive Video QA System   │
      ╰─────────────────────────────────────────╯
 
 Enter YouTube video link: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 
-✅ Audio transcript ready with 25 visual context frames. 
+Audio transcript ready with 25 visual context frames. 
    You can now ask questions!
 
-❓ Ask a question about the video: What is the person wearing?
-🤖 Answer: The person is wearing a black suit with a white dress shirt and a black tie.
+Ask a question about the video: What is the person wearing?
+Answer: The person is wearing a black suit with a white dress shirt and a black tie.
 
-❓ Ask a question about the video: What's the main topic of the video?
-🤖 Answer: The video appears to be a music video featuring a performance with dancing and singing.
+Ask a question about the video: What's the main topic of the video?
+Answer: The video appears to be a music video featuring a performance with dancing and singing.
 
 ❓ Ask a question about the video: exit
 ```
@@ -96,7 +96,7 @@ Unlike traditional video analysis tools, HALO combines:
 
 ---
 
-## 📋 Prerequisites
+## Prerequisites
 
 ### Required
 - **Python 3.8+**
@@ -120,7 +120,7 @@ choco install ffmpeg
 
 ---
 
-## 🔧 Advanced Usage
+## Advanced Usage
 
 ### Question Types
 
@@ -156,26 +156,26 @@ python -c "from halo_video.config_manager import ConfigManager; ConfigManager().
 
 ---
 
-## 🎨 Example Use Cases
+## Example Use Cases
 
-### � Education
+### Education
 - **Lecture Analysis**: "What are the key concepts explained?"
 - **Tutorial Following**: "What tools does the instructor use?"
 - **Language Learning**: "What phrases does the speaker repeat?"
 
-### 💼 Business
+### Business
 - **Meeting Summaries**: "What decisions were made?"
 - **Presentation Review**: "What are the main slides about?"
 - **Training Analysis**: "What safety procedures are demonstrated?"
 
-### 🎬 Content Creation
+### Content Creation
 - **Content Planning**: "What topics does this creator cover?"
 - **Competitor Analysis**: "What presentation style do they use?"
 - **Accessibility**: Generate descriptions for visual content
 
 ---
 
-## 🏗️ How It Works
+## How It Works
 
 ```mermaid
 graph TD
@@ -200,7 +200,7 @@ graph TD
 
 ---
 
-## 📊 Performance
+## Performance
 
 - **Processing Speed**: ~2-3 minutes for a 10-minute video
 - **Memory Usage**: <500MB peak (no large video storage)
@@ -209,7 +209,7 @@ graph TD
 
 ---
 
-## 🛠️ Development
+## Development
 
 ### Local Installation
 ```bash
@@ -228,7 +228,7 @@ pytest tests/
 
 ---
 
-## 🆘 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -257,13 +257,13 @@ halo-video  # Re-enter API key
 
 ---
 
-## 📄 License
+## License
 
 MIT License - see [LICENSE](https://github.com/jeet-dekivadia/halo-video/blob/main/LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **OpenAI Whisper** for speech recognition
 - **Google Gemini** for multimodal AI capabilities
@@ -272,12 +272,12 @@ MIT License - see [LICENSE](https://github.com/jeet-dekivadia/halo-video/blob/ma
 
 ---
 
-## 🤝 Support
+## Support
 
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/jeet-dekivadia/halo-video/issues)
-- 💡 **Feature Requests**: [GitHub Issues](https://github.com/jeet-dekivadia/halo-video/issues)
-- 📧 **Email**: jeet.dekivadia@example.com
-- 💬 **Discord**: [Join our community](https://discord.gg/halo-video)
+- **Bug Reports**: [GitHub Issues](https://github.com/jeet-dekivadia/halo-video/issues)
+- **Feature Requests**: [GitHub Issues](https://github.com/jeet-dekivadia/halo-video/issues)
+- **Email**: jeet.dekivadia@example.com
+- **Discord**: [Join our community](https://discord.gg/halo-video)
 
 ---
 
@@ -288,12 +288,12 @@ MIT License - see [LICENSE](https://github.com/jeet-dekivadia/halo-video/blob/ma
   <img src="https://img.shields.io/badge/HALO-Video-ff6f00.svg?style=for-the-badge&logo=youtube&logoColor=white" alt="HALO Video">
   <img src="https://img.shields.io/badge/Python-Powered-3776AB.svg?style=for-the-badge&logo=python&logoColor=white" alt="Python Powered">
 
-  <h3>⭐ Star us on GitHub if HALO Video helps you!</h3>
+  <h3>Star us on GitHub if HALO Video helps you!</h3>
 
-  <a href="https://github.com/jeet-dekivadia/google-deepmind">⭐ GitHub</a> • 
-  <a href="https://pypi.org/project/halo-video/">📦 PyPI</a> • 
-  <a href="https://github.com/jeet-dekivadia/google-deepmind/tree/main/docs">📖 Docs</a>
+  <a href="https://github.com/jeet-dekivadia/google-deepmind">GitHub</a> • 
+  <a href="https://pypi.org/project/halo-video/">PyPI</a> • 
+  <a href="https://github.com/jeet-dekivadia/google-deepmind/tree/main/docs">Docs</a>
 
-  <p><i>Made with ❤️ for the AI community during Google Summer of Code 2025 at Google DeepMind</i></p>
+  <p><i>Made for the AI community during Google Summer of Code 2025 at Google DeepMind</i></p>
   <b>A Google DeepMind Technology | Powered by Google Gemini | Built with Python</b>
 </div>

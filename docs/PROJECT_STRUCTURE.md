@@ -7,11 +7,11 @@ This document provides a comprehensive overview of the repository organization, 
 
 ---
 
-## 📁 Root Directory Overview
+## Root Directory Overview
 
 ```
 google-deepmind/
-├── 📦 Production Package
+├── Production Package
 │   ├── halo_video/              # Main HALO Video package (PyPI published)
 │   ├── pyproject.toml           # Package configuration and dependencies
 │   ├── MANIFEST.in              # Package manifest for distribution
@@ -47,11 +47,11 @@ google-deepmind/
 
 ---
 
-## 📦 Production Package: `halo_video/`
+## Production Package: `halo_video/`
 
 The main production-ready package published on PyPI as `halo-video`.
 
-### 🏗️ **Architecture Overview**
+### **Architecture Overview**
 
 ```
 halo_video/
@@ -64,7 +64,7 @@ halo_video/
 └── post_install.py              # Post-installation welcome script
 ```
 
-### 🧩 **Component Details**
+### **Component Details**
 
 #### **`cli.py` - Interactive CLI Interface**
 ```python
@@ -148,7 +148,7 @@ halo_video/
 
 Research prototypes and experimental implementations developed during the GSoC project.
 
-### 🔬 **Research Components**
+### **Research Components**
 
 ```
 halo/
@@ -210,7 +210,7 @@ halo/
 
 ## Demonstrations & Examples
 
-### 📓 **Interactive Demonstrations**
+### **Interactive Demonstrations**
 
 #### **`demo.ipynb` - Jupyter Notebook**
 ```python
@@ -378,7 +378,7 @@ tests/
 
 ## Configuration & Utilities
 
-### ⚙️ **Configuration Files**
+### **Configuration Files**
 
 #### **`pyproject.toml` - Package Configuration**
 ```toml
@@ -435,7 +435,7 @@ REM - Package installation and configuration
 
 ## Data & Results
 
-### 💾 **Data Files**
+### **Data Files**
 
 #### **`context_cache.db` - SQLite Cache Database**
 ```sql
@@ -462,7 +462,7 @@ REM - Package installation and configuration
 
 ---
 
-## 🚀 GitHub Integration
+## GitHub Integration
 
 ### **GitHub Workflows** (`.github/workflows/`)
 
@@ -474,7 +474,7 @@ REM - Package installation and configuration
 - benchmark.yml: Performance regression testing
 ```
 
-### 📝 **Issue Templates** (`.github/ISSUE_TEMPLATE/`)
+### **Issue Templates** (`.github/ISSUE_TEMPLATE/`)
 
 ```markdown
 # Template types:

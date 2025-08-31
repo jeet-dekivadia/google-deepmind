@@ -114,7 +114,7 @@ When reporting, please provide:
    - If you need immediate safety measures
 ```
 
-## ⚖️ Enforcement Process
+## Enforcement Process
 
 ### Investigation Timeline
 1. **24 hours**: Acknowledgment of report

@@ -1,15 +1,15 @@
 # Security Policy
 
-## 🔒 Supported Versions
+## Supported Versions
 
 We provide security updates for the following versions of HALO Video:
 
 | Version | Supported          | Status |
 | ------- | ------------------ | ------ |
-| 1.0.x   | ✅ Yes             | Active |
-| < 1.0   | ❌ No              | Legacy |
+| 1.0.x   | Yes             | Active |
+| < 1.0   | No              | Legacy |
 
-## 🛡️ Security Standards
+## Security Standards
 
 ### API Security
 - **Google Gemini API**: All API keys are handled securely through environment variables
@@ -29,7 +29,7 @@ We provide security updates for the following versions of HALO Video:
 - **Safe Defaults**: Secure configuration defaults throughout the application
 - **Error Handling**: Secure error handling that doesn't leak sensitive information
 
-## 🚨 Reporting a Vulnerability
+## Reporting a Vulnerability
 
 If you discover a security vulnerability in HALO Video, please follow responsible disclosure:
 
@@ -79,7 +79,7 @@ Please provide as much information as possible:
    - Contact information for follow-up
 ```
 
-## ⏱️ Response Timeline
+## Response Timeline
 
 We are committed to addressing security issues promptly:
 
@@ -93,7 +93,7 @@ We are committed to addressing security issues promptly:
 
 *Note: Timeline may vary based on complexity and severity*
 
-## 🎯 Severity Classification
+## Severity Classification
 
 ### Critical (CVSS 9.0-10.0)
 - Remote code execution
@@ -115,7 +115,7 @@ We are committed to addressing security issues promptly:
 - Minor security improvements
 - Best practice violations
 
-## 🏆 Recognition
+## Recognition
 
 We believe in recognizing security researchers who help improve our security:
 
@@ -131,7 +131,7 @@ As a Google Summer of Code 2025 project:
 - Research collaboration opportunities may be available
 - Proper academic attribution will be provided
 
-## 🔧 Security Best Practices
+## Security Best Practices
 
 ### For Users
 - **Keep Updated**: Always use the latest version
@@ -145,7 +145,7 @@ As a Google Summer of Code 2025 project:
 - **Dependency Updates**: Keep dependencies updated
 - **Test Security**: Include security tests in contributions
 
-## 📚 Additional Resources
+## Additional Resources
 
 ### Security Documentation
 - [Google Gemini API Security](https://cloud.google.com/security)
@@ -157,7 +157,7 @@ As a Google Summer of Code 2025 project:
 - [Google Security Research](https://security.googleblog.com/)
 - [AI/ML Security Papers](https://arxiv.org/list/cs.CR/recent)
 
-## 🤝 Security Team
+## Security Team
 
 ### Core Security Team
 - **Jeet Dekivadia** - Project Lead & Security Officer

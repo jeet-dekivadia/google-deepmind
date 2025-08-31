@@ -67,7 +67,7 @@ HALO addresses the challenge of **optimizing Gemini API usage for long-context v
 - **Easy Setup**: Guided configuration with helpful error messages
 - **Professional Output**: Clean, formatted results with export options
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -99,7 +99,7 @@ halo-video --url "https://youtube.com/watch?v=VIDEO_ID"
 halo-video --help
 ```
 
-## 🏗️ Technical Architecture
+## Technical Architecture
 
 I built HALO with modern Python practices and production-ready components:
 
@@ -143,7 +143,7 @@ halo_video/
 | Cost Efficiency | High per-frame cost | Optimized hierarchical processing | **85% cost savings** |
 | Memory Usage | High storage needs | Stream processing | **95% less storage** |
 
-## 🎓 Academic Context
+## Academic Context
 
 ### Google Summer of Code 2025
 
@@ -199,7 +199,7 @@ results = await predictor.analyze_video("youtube_url")
 - **FFmpeg**: Auto-installed or manually available
 - **Internet**: Required for API calls and video processing
 
-## 🤝 Contributing
+## Contributing
 
 I welcome contributions from the community! Please see my [Contributing Guide](CONTRIBUTING.md) for details on:
 
@@ -208,11 +208,11 @@ I welcome contributions from the community! Please see my [Contributing Guide](C
 - Pull request process for submitting changes
 - Issue reporting and feature requests to help improve HALO
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 **Special thanks to:**
 - **Google DeepMind** for mentorship and research guidance during GSoC 2025
@@ -230,7 +230,7 @@ HALO Video is **production-ready** and actively maintained. Current status:
 - **Support**: I provide active issue tracking and community support
 - **Updates**: I release regular feature additions and improvements
 
-## 📦 Package Details
+## Package Details
 
 - **PyPI Package**: [halo-video](https://pypi.org/project/halo-video/) (v1.0.8)
 - **Dependencies**: google-generativeai, openai-whisper, ffmpeg-python, rich

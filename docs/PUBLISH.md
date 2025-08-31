@@ -1,8 +1,8 @@
-# 🚀 HALO Video Publishing Guide
+# HALO Video Publishing Guide
 
 ## Complete Step-by-Step Guide to Publish to PyPI
 
-### 📦 Package Overview
+### Package Overview
 - **Package Name**: `halo-video`
 - **Version**: `1.0.0`
 - **Description**: Interactive CLI for YouTube video analysis with audio transcription and visual frame analysis using Gemini AI
@@ -10,7 +10,7 @@
 
 ---
 
-## 🛠️ Prerequisites
+## Prerequisites
 
 ### 1. Required Tools
 ```bash
@@ -32,7 +32,7 @@ You'll need accounts on both:
 
 ---
 
-## 🧪 Step 1: Test on TestPyPI (Recommended First)
+## Step 1: Test on TestPyPI (Recommended First)
 
 ### Build the Package
 ```bash
@@ -64,7 +64,7 @@ halo-video
 
 ---
 
-## 🌍 Step 2: Publish to Real PyPI
+## Step 2: Publish to Real PyPI
 
 ### Upload to PyPI
 ```bash
@@ -86,7 +86,7 @@ halo-video
 
 ---
 
-## 📝 Step 3: Update Package Information
+## Step 3: Update Package Information
 
 ### Current Package Structure
 ```
@@ -107,7 +107,7 @@ halo_video/
 
 ---
 
-## 🎯 How Users Will Install and Use
+## How Users Will Install and Use
 
 ### Installation
 ```bash
@@ -125,18 +125,18 @@ halo-video
 ```bash
 $ halo-video
 
-🎥 Welcome to HALO Interactive Video QA System!
+Welcome to HALO Interactive Video QA System!
 Enter YouTube video link: https://www.youtube.com/watch?v=example
 
-✅ Audio transcript ready with 25 visual context frames. You can now ask questions!
+Audio transcript ready with 25 visual context frames. You can now ask questions!
 
 Ask a question about the video: What is the person wearing?
-🤖 Answer: The person is wearing a blue shirt and black pants.
+Answer: The person is wearing a blue shirt and black pants.
 ```
 
 ---
 
-## 🔧 Maintenance and Updates
+## Maintenance and Updates
 
 ### Version Updates
 1. Update version in `halo_video/__init__.py` and `pyproject.toml`
@@ -157,16 +157,16 @@ All dependencies are automatically installed:
 
 ---
 
-## 🌟 Marketing and Documentation
+## Marketing and Documentation
 
 ### PyPI Page Features
-- ✅ Comprehensive README with examples
-- ✅ Installation instructions
-- ✅ Usage examples
-- ✅ Troubleshooting guide
-- ✅ MIT License
-- ✅ Python 3.8+ compatibility
-- ✅ Cross-platform support
+- Comprehensive README with examples
+- Installation instructions
+- Usage examples
+- Troubleshooting guide
+- MIT License
+- Python 3.8+ compatibility
+- Cross-platform support
 
 ### Key Selling Points
 1. **Easy Installation**: Single `pip install` command
@@ -178,7 +178,7 @@ All dependencies are automatically installed:
 
 ---
 
-## 🚀 Launch Checklist
+## Launch Checklist
 
 ### Before Publishing
 - [ ] Package builds successfully
@@ -203,7 +203,7 @@ All dependencies are automatically installed:
 
 ---
 
-## 🎉 Success Metrics
+## Success Metrics
 
 After publishing, users worldwide will be able to:
 
@@ -212,7 +212,7 @@ pip install halo-video
 halo-video
 ```
 
-And immediately start analyzing YouTube videos with AI! 🎥🤖
+And immediately start analyzing YouTube videos with AI!
 
 Your package will join the Python ecosystem and be discoverable by:
 - `pip search halo`

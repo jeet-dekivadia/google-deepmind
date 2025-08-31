@@ -41,7 +41,7 @@ I designed and implemented HALO (Hierarchical Abstraction for Longform Optimizat
 
 ---
 
-## 🏗️ Technical Architecture
+## Technical Architecture
 
 ### **Core Components**
 
@@ -327,7 +327,7 @@ LinkedIn: [linkedin.com/in/jeet-dekivadia](https://linkedin.com/in/jeet-dekivadi
 3. "Flamingo: A Visual Language Model for Few-Shot Learning" - Multimodal AI
 4. "LLaVA: Large Language and Vision Assistant" - Vision-language integration
 
-### 🛠️ **Technologies & Tools**
+### **Technologies & Tools**
 - **Google Gemini Vision API**: State-of-the-art multimodal AI
 - **FFmpeg**: Professional video processing toolkit
 - **Rich**: Professional terminal interface development
