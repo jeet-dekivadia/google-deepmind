@@ -175,5 +175,5 @@ We encourage the broader community to:
 
 **Remember**: The security of HALO Video depends on responsible disclosure and community collaboration. Thank you for helping keep our users and their data safe.
 
-*Last Updated: January 2025*
+*Last Updated: September 2025*
 *GSoC 2025 Project - Google DeepMind*
