@@ -101,15 +101,15 @@ halo_video/
 ```python
 # Core Features:
 - YouTube video URL processing
-- Intelligent frame extraction at 15-second intervals
-- FFmpeg integration with optimized parameters
+- Advanced video content analysis
+- Comprehensive audio and visual data extraction
 - Memory-efficient processing without large file storage
 - Video metadata extraction and analysis
 
 # Key Functions:
-- extract_frames_at_intervals() - Core frame extraction
+- process_video_content() - Advanced multi-modal extraction
 - process_youtube_video() - Complete video processing pipeline
-- optimize_extraction_parameters() - Dynamic parameter adjustment
+- optimize_processing_parameters() - Dynamic parameter adjustment
 ```
 
 #### **`context_cache.py` - Intelligent Caching System**
@@ -181,15 +181,15 @@ halo/
 #### **`extractors.py` - Feature Extraction Experiments**
 ```python
 # Research Focus:
-- Video feature extraction and analysis
-- Frame selection optimization algorithms
-- Content-aware sampling strategies
-- Multi-modal feature integration
+- Video content analysis and multi-modal extraction
+- Advanced audio-visual processing techniques
+- Content-aware analysis strategies
+- Multi-modal data integration approaches
 
 # Key Experiments:
-- compare_sampling_strategies() - Algorithm comparison
-- optimize_extraction_intervals() - Interval optimization
-- content_aware_selection() - Intelligent frame selection
+- compare_analysis_strategies() - Algorithm comparison
+- optimize_processing_methods() - Processing optimization
+- content_aware_analysis() - Intelligent content analysis
 ```
 
 #### **`pipeline.py` - Processing Pipeline Research**

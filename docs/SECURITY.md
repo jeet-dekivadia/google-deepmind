@@ -40,7 +40,7 @@ If you discover a security vulnerability in HALO Video, please follow responsibl
 
 ### How to Report
 **Primary Contact:**
-- **Email**: [jeet.dekivadia@example.com](mailto:jeet.dekivadia@example.com)
+- **Email**: [jeet.university@gmail.com](mailto:jeet.university@gmail.com)
 - **Subject**: `[SECURITY] HALO Video Vulnerability Report`
 
 **GitHub Security Advisory:**

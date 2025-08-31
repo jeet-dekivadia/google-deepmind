@@ -1,27 +1,35 @@
-# HALO Video 🎥
+# 🌟 HALO Video 🎥
 
-[![PyPI version](https://badge.fury.io/py/halo-video.svg)](https://badge.fury.io/py/halo-video)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Downloads](https://pepy.tech/badge/halo-video)](https://pepy.tech/project/halo-video)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+<div align="center">
+  <img src="https://img.shields.io/badge/PyPI-halo--video-blue.svg?style=for-the-badge&logo=pypi&logoColor=white" alt="PyPI">
+  <img src="https://img.shields.io/badge/Python-3.8+-3776AB.svg?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="MIT License">
+  <br>
+  <img src="https://img.shields.io/badge/Downloads-PyPI-blue.svg?style=for-the-badge&logo=pypi&logoColor=white" alt="Downloads">
+  <img src="https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge" alt="Code Style: Black">
+  <br>
+  <img src="https://img.shields.io/badge/Google-DeepMind-4285f4.svg?style=for-the-badge&logo=google&logoColor=white" alt="Google DeepMind">
+  <img src="https://img.shields.io/badge/Google-Gemini%20AI-4285f4.svg?style=for-the-badge&logo=google&logoColor=white" alt="Google Gemini">
+</div>
 
-**🤖 Interactive CLI for YouTube video analysis with AI-powered audio transcription and visual frame analysis**
+<h3 align="center">🤖 Advanced YouTube Video Analysis with Google's Multi-Modal AI Technology</h3>
 
-Transform any YouTube video into an intelligent Q&A session using Google's Gemini AI. HALO Video combines audio transcription with visual frame analysis to answer both content-based and visual questions about your videos.
+<p align="center"><b>A Google DeepMind Technology | Powered by Google Gemini | Built with Python</b></p>
+
+I've developed HALO Video as a sophisticated tool for comprehensive video analysis using Google's Gemini AI. My implementation combines advanced audio and visual content processing to create an intelligent system capable of understanding and answering questions about any YouTube video.
 
 ---
 
 ## ✨ Key Features
 
-🎵 **Audio Intelligence** - Extract and transcribe audio using OpenAI Whisper  
-👁️ **Visual Analysis** - Analyze video frames every 15 seconds using Gemini Vision API  
-🤖 **AI-Powered Q&A** - Ask detailed questions about video content using Gemini AI  
-💾 **Smart Caching** - Intelligent caching system minimizes API calls and costs  
-⚡ **Efficient Processing** - Optimized frame extraction without storing large video files  
-🎨 **Beautiful CLI** - Rich terminal interface with progress bars and styled output  
-🔐 **Secure** - API keys stored safely in your home directory  
-🌍 **Cross-Platform** - Works on Windows, macOS, and Linux  
+🎵 **Comprehensive Audio Analysis** - Advanced audio processing and understanding  
+👁️ **Visual Content Processing** - Sophisticated video content analysis using Gemini Vision API  
+🤖 **Multi-Modal AI Integration** - Combined audio-visual understanding for complete context  
+💾 **Intelligent Caching System** - My custom caching system minimizes API calls and costs  
+⚡ **High-Performance Processing** - Optimized for efficiency without storing large files  
+🎨 **Professional Interface** - Rich terminal interface with progress tracking and styled output  
+🔐 **Secure Operations** - API keys stored securely in your home directory  
+🌍 **Cross-Platform Compatibility** - Works seamlessly on Windows, macOS, and Linux  
 
 ---
 
@@ -171,25 +179,24 @@ python -c "from halo_video.config_manager import ConfigManager; ConfigManager().
 
 ```mermaid
 graph TD
-    A[YouTube URL] --> B[Download Audio]
-    A --> C[Extract Frames 15s intervals]
-    B --> D[Whisper Transcription]
-    C --> E[Gemini Vision Analysis]
-    D --> F[Combine Context]
+    A[YouTube URL] --> B[Video Content Extraction]
+    B --> D[Audio Processing]
+    B --> E[Visual Content Analysis]
+    D --> F[Combine Multi-Modal Context]
     E --> F
-    F --> G[Smart Chunking]
+    F --> G[Hierarchical Content Organization]
     G --> H[User Questions]
     H --> I[Gemini AI Response]
-    I --> J[Cached for Future Use]
+    I --> J[Intelligent Context Caching]
 ```
 
-1. **Audio Processing**: Downloads and transcribes audio using OpenAI Whisper
-2. **Frame Extraction**: Extracts frames every 15 seconds directly from video stream
-3. **Visual Analysis**: Each frame described using Gemini Vision API
-4. **Context Creation**: Combines audio transcript with visual descriptions
-5. **Smart Chunking**: Breaks content into optimal chunks for AI processing
-6. **Question Answering**: Uses Gemini AI to answer based on combined context
-7. **Intelligent Caching**: Stores results to minimize future API costs
+1. **Content Extraction**: Processes the YouTube video to extract analyzable content
+2. **Multi-Modal Processing**: Advanced audio and visual content analysis
+3. **Visual Understanding**: Comprehensive visual content analysis using Gemini Vision API
+4. **Context Creation**: Creates a rich context combining both audio and visual information
+5. **Hierarchical Organization**: Organizes content for optimal AI processing efficiency
+6. **Intelligent Q&A**: Leverages Gemini AI to answer based on complete video context
+7. **Sophisticated Caching**: My custom caching system minimizes redundant API calls
 
 ---
 
@@ -275,11 +282,18 @@ MIT License - see [LICENSE](https://github.com/jeet-dekivadia/halo-video/blob/ma
 ---
 
 <div align="center">
+  <img src="https://img.shields.io/badge/Google-Summer%20of%20Code%202025-fbbc04.svg?style=for-the-badge&logo=google&logoColor=white" alt="Google Summer of Code">
+  <img src="https://img.shields.io/badge/Google-DeepMind-4285f4.svg?style=for-the-badge&logo=google&logoColor=white" alt="Google DeepMind">
+  <br>
+  <img src="https://img.shields.io/badge/HALO-Video-ff6f00.svg?style=for-the-badge&logo=youtube&logoColor=white" alt="HALO Video">
+  <img src="https://img.shields.io/badge/Python-Powered-3776AB.svg?style=for-the-badge&logo=python&logoColor=white" alt="Python Powered">
 
-**⭐ Star us on GitHub if HALO Video helps you!**
+  <h3>⭐ Star us on GitHub if HALO Video helps you!</h3>
 
-[⭐ GitHub](https://github.com/jeet-dekivadia/halo-video) • [📦 PyPI](https://pypi.org/project/halo-video/) • [📖 Docs](https://halo-video.readthedocs.io/)
+  <a href="https://github.com/jeet-dekivadia/google-deepmind">⭐ GitHub</a> • 
+  <a href="https://pypi.org/project/halo-video/">📦 PyPI</a> • 
+  <a href="https://github.com/jeet-dekivadia/google-deepmind/tree/main/docs">📖 Docs</a>
 
-*Made with ❤️ for the AI community*
-
+  <p><i>Made with ❤️ for the AI community during Google Summer of Code 2025 at Google DeepMind</i></p>
+  <b>A Google DeepMind Technology | Powered by Google Gemini | Built with Python</b>
 </div>

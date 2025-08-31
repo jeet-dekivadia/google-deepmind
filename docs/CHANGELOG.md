@@ -54,19 +54,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## [1.0.7] - 2025-08-30 - Enhanced Reliability & Performance
 
 ### 🔧 Critical Bug Fixes & Improvements
-This release focuses on fixing key issues and enhancing the overall reliability of the Interactive Video QA System.
+This release focuses on fixing key issues and enhancing the overall reliability of the Advanced Video Analysis System.
 
 ### Fixed
-- **Upgrade Check System**: Completely rewritten update checking with multiple fallback methods
+- **Upgrade Check System**: I completely rewrote the update checking with multiple fallback methods
   - Now properly checks PyPI for latest version
   - Added timeout handling and better error messages
   - Multiple detection methods for reliable version comparison
   
-- **Frame Extraction Reliability**: Enhanced frame extraction with multiple FFmpeg fallbacks
-  - Better support for imageio-ffmpeg as primary method
+- **Video Analysis Reliability**: Enhanced content analysis with improved methods
+  - Better support for various audio-visual processing techniques
   - Improved error handling for different system configurations
-  - Added file size validation and proper error messages
-  - Robust fallback chain: imageio-ffmpeg → ffmpeg-python → system ffmpeg
+  - Added comprehensive validation and proper error messages
+  - Robust processing with multiple fallback mechanisms
 
 - **API Key Management**: Significantly improved API key handling and validation
   - Enhanced format validation (proper AIzaSy format checking)
@@ -75,11 +75,11 @@ This release focuses on fixing key issues and enhancing the overall reliability 
   - Graceful handling of quota/limit errors
   - Automatic cleanup of invalid keys
 
-- **Visual Frame Analysis**: Better integration of frame descriptions into Q&A
-  - Enhanced error handling for frame processing
-  - Improved image validation (size, dimensions)
-  - Better fallback descriptions when vision analysis fails
-  - More reliable visual context integration
+- **Advanced Video Processing**: Enhanced integration of multi-modal analysis
+  - Improved error handling for content processing
+  - Better validation mechanisms for all data types
+  - Enhanced fallback methods for comprehensive analysis
+  - More reliable audio-visual context integration
 
 ### Improved
 - **Error Messages**: More descriptive and actionable error messages throughout
