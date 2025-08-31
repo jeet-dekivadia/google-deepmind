@@ -10,7 +10,6 @@
 
 <p align="center">
   <b>Official Google Summer of Code 2025 Project at Google DeepMind</b><br>
-  <b>Student</b>: Jeet Dekivadia<br>
   <b>Email</b>: jeet.university@gmail.com<br>
   <b>Project</b>: HALO - Hierarchical Abstraction for Longform Optimization
 </p>
@@ -299,15 +298,14 @@ Video Length: 2 hours
 
 ---
 
-## 📞 Contact & Collaboration
+## Contact & Collaboration
 
-### 📧 **Primary Contact**
-**Jeet Dekivadia**  
+### **Contact**
 Email: jeet.university@gmail.com  
 GitHub: [@jeet-dekivadia](https://github.com/jeet-dekivadia)  
 LinkedIn: [linkedin.com/in/jeet-dekivadia](https://linkedin.com/in/jeet-dekivadia)
 
-### 🤝 **Collaboration Opportunities**
+### **Collaboration Opportunities**
 - **Academic Research**: Open to research collaborations and extensions
 - **Industry Partnerships**: Available for consulting and development projects
 - **Open Source**: Active maintainer seeking contributors and users

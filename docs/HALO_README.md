@@ -1,15 +1,28 @@
-# 🌟 HALO Video
+# HALO Video
 
 <div align="center">
   <h2>Hierarchical Abstraction for Longform Optimization</h2>
-  <h3>Advanced AI-Powered YouTube Video Analysis Tool</h3>
+  <h3>Advanced AI-Powered YouTube Video Analysis To- **Research Problem**: Investigated efficient processing of long-form multimedia content
+- **Technical Innovation**: I created new hierarchical abstraction techniques for comprehensive video analysis
+- **Practical Application**: I built a production-ready tool for developers and researchers
+- **Open Source Contribution**: I released the project under MIT license for community useh3>
   
-  <img src="https://img.shields.io/badge/PyPI-halo--video-blue.svg?style=for-the-badge&logo=pypi&logoColor=white" alt="PyPI">
-  <img src="https://img.shields.io/badge/Python-3.8+-3776AB.svg?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="MIT License">
+  <a href="https://pypi.org/project/halo-video/">
+    <img src="https://img.shields.io/badge/PyPI-halo--video-blue.svg?style=for-the-badge&logo=pypi&logoColor=white" alt="PyPI">
+  </a>
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/Python-3.8+-3776AB.svg?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  </a>
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="MIT License">
+  </a>
   <br>
-  <img src="https://img.shields.io/badge/Google-Summer%20of%20Code%202025-fbbc04.svg?style=for-the-badge&logo=google&logoColor=white" alt="Google Summer of Code">
-  <img src="https://img.shields.io/badge/Google-DeepMind-4285f4.svg?style=for-the-badge&logo=google&logoColor=white" alt="Google DeepMind">
+  <a href="https://summerofcode.withgoogle.com/">
+    <img src="https://img.shields.io/badge/Google-Summer%20of%20Code%202025-fbbc04.svg?style=for-the-badge&logo=google&logoColor=white" alt="Google Summer of Code">
+  </a>
+  <a href="https://deepmind.google/">
+    <img src="https://img.shields.io/badge/Google-DeepMind-4285f4.svg?style=for-the-badge&logo=google&logoColor=white" alt="Google DeepMind">
+  </a>
 </div>
 
 <p align="center">
@@ -143,7 +156,6 @@ I developed this project as part of Google Summer of Code 2025 under the mentors
 
 ### Contact & Collaboration
 
-**Developer**: Jeet Dekivadia  
 **Email**: jeet.university@gmail.com  
 **GitHub**: [jeet-dekivadia](https://github.com/jeet-dekivadia)  
 **Institution**: Google DeepMind (GSoC 2025)  
@@ -210,13 +222,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📈 Project Status
 
-HALO Video is **production-ready** and actively maintained by me. Current status:
+HALO Video is **production-ready** and actively maintained. Current status:
 
-- ✅ **Stable API**: I ensure backward-compatible releases
-- ✅ **Cross-Platform**: I've tested on Windows, macOS, Linux  
-- ✅ **Documentation**: I've created comprehensive guides and examples
-- ✅ **Support**: I provide active issue tracking and community support
-- ✅ **Updates**: I release regular feature additions and improvements
+- **Stable API**: I ensure backward-compatible releases
+- **Cross-Platform**: I've tested on Windows, macOS, Linux  
+- **Documentation**: I've created comprehensive guides and examples
+- **Support**: I provide active issue tracking and community support
+- **Updates**: I release regular feature additions and improvements
 
 ## 📦 Package Details
 
@@ -229,14 +241,22 @@ HALO Video is **production-ready** and actively maintained by me. Current status
 ---
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Google-Summer%20of%20Code%202025-fbbc04.svg?style=for-the-badge&logo=google&logoColor=white" alt="Google Summer of Code">
-  <img src="https://img.shields.io/badge/Google-DeepMind-4285f4.svg?style=for-the-badge&logo=google&logoColor=white" alt="Google DeepMind">
+  <a href="https://summerofcode.withgoogle.com/">
+    <img src="https://img.shields.io/badge/Google-Summer%20of%20Code%202025-fbbc04.svg?style=for-the-badge&logo=google&logoColor=white" alt="Google Summer of Code">
+  </a>
+  <a href="https://deepmind.google/">
+    <img src="https://img.shields.io/badge/Google-DeepMind-4285f4.svg?style=for-the-badge&logo=google&logoColor=white" alt="Google DeepMind">
+  </a>
   <br>
-  <img src="https://img.shields.io/badge/HALO-Video-ff6f00.svg?style=for-the-badge&logo=youtube&logoColor=white" alt="HALO Video">
-  <img src="https://img.shields.io/badge/Python-Powered-3776AB.svg?style=for-the-badge&logo=python&logoColor=white" alt="Python Powered">
+  <a href="https://pypi.org/project/halo-video/">
+    <img src="https://img.shields.io/badge/HALO-Video-ff6f00.svg?style=for-the-badge&logo=youtube&logoColor=white" alt="HALO Video">
+  </a>
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/Python-Powered-3776AB.svg?style=for-the-badge&logo=python&logoColor=white" alt="Python Powered">
+  </a>
   
   <p>
-    <b>Built with ❤️ by Jeet Dekivadia during Google Summer of Code 2025 at Google DeepMind</b><br>
+    <b>Google Summer of Code 2025 at Google DeepMind</b><br>
     <i>HALO - Advanced video analysis with both visual and audio understanding</i><br>
     <b>A Google DeepMind Technology | Powered by Google Gemini | Built with Python</b>
   </p>
