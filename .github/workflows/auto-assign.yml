@@ -1,0 +1,106 @@
+name: Auto-assign Issues and PRs
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+jobs:
+  auto-assign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auto-assign issue or PR
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue = context.payload.issue || context.payload.pull_request;
+            const assignee = 'jeet-dekivadia'; // Main maintainer
+            
+            // Auto-assign to main maintainer
+            await github.rest.issues.addAssignees({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              assignees: [assignee]
+            });
+            
+            // Add appropriate labels based on content
+            const title = issue.title.toLowerCase();
+            const body = (issue.body || '').toLowerCase();
+            const labels = [];
+            
+            // Academic/Research labels
+            if (title.includes('gsoc') || body.includes('gsoc') || 
+                title.includes('research') || body.includes('research')) {
+              labels.push('gsoc-2025');
+            }
+            
+            // Priority labels based on keywords
+            if (title.includes('urgent') || title.includes('critical') || 
+                body.includes('breaking') || body.includes('crash')) {
+              labels.push('priority-high');
+            }
+            
+            // Feature type labels
+            if (title.includes('optimization') || body.includes('performance')) {
+              labels.push('optimization');
+            }
+            
+            if (title.includes('vision') || title.includes('gemini') || 
+                body.includes('ai') || body.includes('ml')) {
+              labels.push('ai-ml');
+            }
+            
+            // Add labels if any were identified
+            if (labels.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: labels
+              });
+            }
+            
+            // Add welcome comment for first-time contributors
+            const creator = issue.user.login;
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              creator: creator,
+              state: 'all'
+            });
+            
+            if (issues.length === 1) {
+              const welcomeMessage = context.payload.issue ? 
+                `👋 Welcome to HALO Video! Thank you for opening your first issue.
+
+🎓 **About HALO Video**: This is a Google Summer of Code 2025 project focused on AI-powered video analysis using Google's Gemini Vision API.
+
+📋 **What happens next**:
+- A maintainer will review your issue within 24-48 hours
+- If this is a bug report, please ensure you've followed our issue template
+- If this is a feature request, we'll evaluate it based on project goals and research impact
+
+🤝 **Want to contribute?** Check out our [Contributing Guide](CONTRIBUTING.md) and [Project Structure](PROJECT_STRUCTURE.md).
+
+🔬 **Research Context**: All contributions should align with our research goals of optimizing video analysis efficiency and advancing AI-powered content understanding.` :
+                `🎉 Thanks for your first pull request to HALO Video!
+
+🎓 **Research Impact**: Your contribution helps advance AI-powered video analysis research as part of Google Summer of Code 2025.
+
+✅ **Review Process**:
+- Automated tests will run shortly
+- A maintainer will review your changes
+- We'll provide feedback and guidance as needed
+
+📚 **Resources**: Make sure you've reviewed our [Contributing Guidelines](CONTRIBUTING.md) and [Academic Documentation](GSoC_PROJECT_DOCUMENTATION.md).`;
+              
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: welcomeMessage
+              });
+            }

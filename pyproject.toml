@@ -1,0 +1,97 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "halo-video"
+version = "1.0.8"
+description = "Interactive Video QA System"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Jeet Dekivadia", email = "jeet.university@gmail.com"}
+]
+maintainers = [
+    {name = "Jeet Dekivadia", email = "jeet.university@gmail.com"}
+]
+keywords = [
+    "ai", 
+    "video-analysis", 
+    "youtube", 
+    "gemini", 
+    "google-deepmind",
+    "google-summer-of-code",
+    "gsoc",
+    "halo",
+    "hierarchical-abstraction",
+    "longform-optimization",
+    "video-qa",
+    "multimodal", 
+    "vision", 
+    "cli", 
+    "ffmpeg",
+    "transcription",
+    "machine-learning",
+    "artificial-intelligence"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "google-generativeai>=0.3.0",
+    "openai-whisper>=20231117",
+    "Pillow>=10.0.0",
+    "yt-dlp>=2024.4.9",
+    "ffmpeg-python>=0.2.0",
+    "rich>=13.7.0",
+    "httpx>=0.27.0",
+    "aiosqlite>=0.19.0",
+    "sentence-transformers>=2.7.0",
+    "imageio-ffmpeg>=0.4.8",
+    "click>=8.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.5.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/jeet-dekivadia/google-deepmind"
+Repository = "https://github.com/jeet-dekivadia/google-deepmind"
+"Source Code" = "https://github.com/jeet-dekivadia/google-deepmind/tree/main/halo_video"
+Documentation = "https://github.com/jeet-dekivadia/google-deepmind#halo-video"
+"Bug Tracker" = "https://github.com/jeet-dekivadia/google-deepmind/issues"
+"Google Summer of Code" = "https://summerofcode.withgoogle.com/"
+"Google DeepMind" = "https://deepmind.google/"
+
+[project.scripts]
+halo-video = "halo_video.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["halo_video*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true

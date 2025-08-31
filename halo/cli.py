@@ -10,10 +10,13 @@ Beautiful, conversational, and cost-efficient.
 import asyncio
 import json
 import tempfile
+import base64
 from typing import List, Dict, Any
 import yt_dlp
 import ffmpeg
 import whisper
+import google.generativeai as genai
+from PIL import Image
 from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
@@ -28,7 +31,7 @@ from config import GEMINI_API_KEY
 
 console = Console()
 
-HALO_BANNER = '''
+HALO_BANNER = r'''
 [bold cyan]
 ........................................................................
 .  _   _    _    _     ___   
@@ -67,6 +70,64 @@ async def download_youtube_audio(youtube_url: str, output_dir: str) -> str:
         audio_path = ydl.prepare_filename(info).rsplit('.', 1)[0] + '.wav'
     return audio_path
 
+# Helper: Extract frames every 15 seconds directly from stream (no video file saved)
+def extract_frames_from_url(youtube_url: str, output_dir: str) -> List[str]:
+    frame_pattern = os.path.join(output_dir, "frame_%04d.jpg")
+    try:
+        # Extract frames directly from YouTube stream without saving video
+        (
+            ffmpeg
+            .input(youtube_url)
+            .output(frame_pattern, vf='fps=1/15', format='image2', vcodec='mjpeg')
+            .run(quiet=True, overwrite_output=True)
+        )
+        # Collect all frame file paths
+        frames = sorted([
+            os.path.join(output_dir, fname)
+            for fname in os.listdir(output_dir)
+            if fname.startswith("frame_") and fname.endswith(".jpg")
+        ])
+        return frames
+    except Exception as e:
+        console.print(f"[yellow][WARNING] Frame extraction failed: {e}[/yellow]")
+        return []
+
+# Helper: Describe an image frame using Gemini Vision API
+async def describe_image(image_path: str, frame_number: int, timestamp: float, model=None) -> str:
+    try:
+        # Use provided model or create new one
+        if model is None:
+            genai.configure(api_key=GEMINI_API_KEY)
+            model = genai.GenerativeModel('gemini-1.5-flash')
+        
+        # Load and prepare the image
+        img = Image.open(image_path)
+        
+        # Create a detailed prompt for image description
+        minutes = int(timestamp // 60)
+        seconds = int(timestamp % 60)
+        
+        prompt = f"""Describe this video frame in ONE concise sentence. Focus only on key visual elements:
+        - What people are wearing (colors, clothing types)
+        - Main objects and their colors
+        - Setting/location if obvious
+        - Any text visible on screen
+        
+        Keep it brief and factual - this supplements audio transcript for visual questions only."""
+        
+        # Generate description using Gemini Vision
+        response = model.generate_content([prompt, img])
+        description = response.text.strip()
+        
+        return f"[Frame at {minutes:02d}:{seconds:02d}] {description}"
+        
+    except Exception as e:
+        # Fallback description if API fails
+        minutes = int(timestamp // 60)
+        seconds = int(timestamp % 60)
+        console.print(f"[yellow][WARNING] Image description failed for frame {frame_number}: {e}[/yellow]")
+        return f"[Frame at {minutes:02d}:{seconds:02d}] Video frame captured at this timestamp (description unavailable)."
+
 # Helper: Transcribe audio using Whisper
 async def transcribe_audio(audio_path: str) -> str:
     model = whisper.load_model("base")
@@ -91,18 +152,47 @@ async def interactive_cli():
             progress.add_task(description=f"Downloading audio for video ID: {video_id}...", total=None)
             audio_path = await download_youtube_audio(youtube_url, tmpdir)
         console.print(f"[green][INFO] Audio saved to {audio_path}[/green]")
+        
+        # NEW: Extract frames directly from YouTube stream (no video file saved)
+        with Progress(SpinnerColumn(), TextColumn("[progress.description]{task.description}"), transient=True) as progress:
+            progress.add_task(description="Extracting frames every 15 seconds...", total=None)
+            frames = extract_frames_from_url(youtube_url, tmpdir)
+        console.print(f"[green][INFO] Extracted {len(frames)} frames.[/green]")
+
         with Progress(SpinnerColumn(), TextColumn("[progress.description]{task.description}"), transient=True) as progress:
             progress.add_task(description="Transcribing audio (this may take a while)...", total=None)
             transcript = await transcribe_audio(audio_path)
-        console.print("[bold green][INFO] Transcript ready. You can now ask questions![/bold green]")
-        chunks = chunk_transcript(transcript, max_tokens=4000, overlap=500)
-        total_tokens_full = estimate_tokens(transcript)
+        
+        # NEW: Describe each frame and append to transcript
+        frame_descriptions = []
+        if frames:
+            # Initialize Gemini model once for all frames
+            genai.configure(api_key=GEMINI_API_KEY)
+            vision_model = genai.GenerativeModel('gemini-1.5-flash')
+            
+            with Progress(SpinnerColumn(), TextColumn("[progress.description]{task.description}"), transient=True) as progress:
+                task = progress.add_task(description="Generating detailed frame descriptions...", total=len(frames))
+                for i, frame_path in enumerate(frames):
+                    timestamp = i * 15  # 15 seconds per frame
+                    desc = await describe_image(frame_path, i, timestamp, vision_model)
+                    frame_descriptions.append(desc)
+                    progress.update(task, advance=1)
+            frames_text = "\n".join(frame_descriptions)
+            # Append frame descriptions to transcript
+            transcript_with_images = transcript + "\n\n[Visual Context - Key frames every 15 seconds]\n" + frames_text
+            console.print(f"[bold green][INFO] Audio transcript ready with {len(frames)} visual context frames. You can now ask questions![/bold green]")
+        else:
+            transcript_with_images = transcript
+            console.print("[bold green][INFO] Transcript ready (no frames extracted). You can now ask questions![/bold green]")
+        
+        chunks = chunk_transcript(transcript_with_images, max_tokens=4000, overlap=500)
+        total_tokens_full = estimate_tokens(transcript_with_images)
         total_tokens_sent = 0
         total_tokens_saved = 0
         cache_hits = 0
         cache_lookups = 0
         question_history = []
-        console.print(Panel(f"[b]Video ID:[/b] {video_id}\n[b]Transcript length:[/b] {len(transcript)} chars, ~{total_tokens_full} tokens\n[b]Chunks created:[/b] {len(chunks)} (chunk size ~4000 tokens)", title="[bold magenta]VIDEO INFO[/bold magenta]", box=box.DOUBLE))
+        console.print(Panel(f"[b]Video ID:[/b] {video_id}\n[b]Transcript length:[/b] {len(transcript_with_images)} chars, ~{total_tokens_full} tokens\n[b]Chunks created:[/b] {len(chunks)} (chunk size ~4000 tokens)", title="[bold magenta]VIDEO INFO[/bold magenta]", box=box.DOUBLE))
         console.print("[bold blue]Type your question and press Enter. Type 'exit' to quit.[/bold blue]\n")
         predictor = GeminiBatchPredictor(api_key=GEMINI_API_KEY, use_persistent_cache=True)
         try:
