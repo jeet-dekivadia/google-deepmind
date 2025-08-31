@@ -31,13 +31,13 @@
 
 ---
 
-## 📖 About
+## About
 
 **HALO** (Hierarchical Abstraction for Longform Optimization) is a production-ready Python package I developed during **Google Summer of Code 2025** at **Google DeepMind**. 
 
 HALO addresses the challenge of **optimizing Gemini API usage for long-context video analysis** by implementing intelligent frame extraction, hierarchical content abstraction, and efficient API call management for YouTube video processing.
 
-## 🎯 Core Problem & Solution
+## Core Problem & Solution
 
 **Challenge**: Analyzing long-form video content with AI models like Gemini Vision API is expensive and inefficient when processing every frame.
 
@@ -47,21 +47,21 @@ HALO addresses the challenge of **optimizing Gemini API usage for long-context v
 - **Context Optimization**: I developed smart batching and caching systems that reduce API calls by up to 80%
 - **Multimodal Integration**: I created a seamless integration between visual frame analysis and audio transcription for comprehensive video understanding
 
-## ✨ Key Features
+## Key Features
 
-### 🎬 **Video Processing**
+### **Video Processing**
 - **YouTube Integration**: Direct video URL processing without downloads
 - **Smart Frame Extraction**: Optimized intervals for comprehensive coverage
 - **FFmpeg Auto-Setup**: Automatic installation and configuration
 - **Memory Efficient**: Processes videos without large file storage
 
-### 🧠 **AI-Powered Analysis**
+### **AI-Powered Analysis**
 - **Google Gemini Vision**: State-of-the-art image understanding
 - **Contextual Q&A**: Interactive questioning about video content
 - **Batch Processing**: Efficient API usage for multiple frames
 - **Response Caching**: Intelligent caching to avoid redundant calls
 
-### 💻 **User Experience**
+### **User Experience**
 - **Interactive CLI**: Rich terminal interface with progress tracking
 - **Cross-Platform**: Windows, macOS, and Linux support
 - **Easy Setup**: Guided configuration with helpful error messages
@@ -114,7 +114,7 @@ halo_video/
 └── context_cache.py          # Intelligent caching system
 ```
 
-### 🔧 **Core Components**
+### **Core Components**
 
 **Video Analysis Engine**
 - Comprehensive frame extraction system for visual content analysis
@@ -134,7 +134,7 @@ halo_video/
 - Environment variable support for CI/CD and server deployment
 - User-friendly configuration management with simple reset and update options
 
-## 📊 Performance Benefits
+## Performance Benefits
 
 | Metric | Traditional Approach | HALO Optimization | Improvement |
 |--------|---------------------|------------------|-------------|
@@ -161,7 +161,7 @@ I developed this project as part of Google Summer of Code 2025 under the mentors
 **Institution**: Google DeepMind (GSoC 2025)  
 **Repository**: [github.com/jeet-dekivadia/google-deepmind](https://github.com/jeet-dekivadia/google-deepmind)
 
-## 🛠️ Advanced Usage
+## Advanced Usage
 
 ### Configuration Options
 
@@ -192,7 +192,7 @@ predictor = GeminiBatchPredictor(config.get_api_key())
 results = await predictor.analyze_video("youtube_url")
 ```
 
-## 📋 Requirements
+## Requirements
 
 - **Python**: 3.8 or higher
 - **API Key**: Free Google Gemini API key
@@ -220,7 +220,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Gemini API Team** for providing access to cutting-edge AI capabilities
 - **Open Source Community** for the foundational tools and libraries
 
-## 📈 Project Status
+## Project Status
 
 HALO Video is **production-ready** and actively maintained. Current status:
 

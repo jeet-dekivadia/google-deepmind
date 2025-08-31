@@ -20,19 +20,19 @@
 
 ---
 
-## 📋 Project Summary
+## Project Summary
 
-### 🎯 **Objective**
+### **Objective**
 My objective was to develop production-ready tools for optimizing AI model usage in long-form video analysis, addressing the challenge of cost-effective and efficient processing of multimedia content with large language models and vision APIs.
 
-### 🔬 **Research Problem**
+### **Research Problem**
 Through my research, I identified that long-form video analysis with AI models like Google's Gemini Vision API faces significant challenges:
 - **High computational costs** due to frame-by-frame processing
 - **Redundant analysis** of similar consecutive frames
 - **Poor scalability** for videos longer than a few minutes
 - **Inefficient resource utilization** leading to slow processing
 
-### 💡 **Solution: HALO Algorithm**
+### **Solution: HALO Algorithm**
 I designed and implemented HALO (Hierarchical Abstraction for Longform Optimization) which includes:
 1. **Advanced Video Analysis**: Comprehensive analysis of both audio transcription and visual frame data
 2. **Hierarchical Processing**: Multi-level content abstraction to minimize redundant analysis
@@ -43,7 +43,7 @@ I designed and implemented HALO (Hierarchical Abstraction for Longform Optimizat
 
 ## 🏗️ Technical Architecture
 
-### 🎬 **Core Components**
+### **Core Components**
 
 #### 1. **Video Analysis System** (`transcript_utils.py`)
 ```python
@@ -99,9 +99,9 @@ def interactive_cli():
 
 ---
 
-## 📊 Performance Analysis
+## Performance Analysis
 
-### 🚀 **Optimization Results**
+### **Optimization Results**
 
 | Metric | Traditional Methods | HALO System | Improvement |
 |--------|-------------|------------|-------------|
@@ -111,7 +111,7 @@ def interactive_cli():
 | **Memory Usage** | 2-5 GB storage | <100 MB usage | **95% reduction** |
 | **Analysis Quality** | Limited by single approach | Enhanced by multi-modal analysis | **Significantly improved** |
 
-### 📈 **Scalability Metrics**
+### **Scalability Metrics**
 
 ```python
 # My performance benchmarks
@@ -130,9 +130,9 @@ Video Length: 2 hours
 
 ---
 
-## 🧪 Development Process
+## Development Process
 
-### 📅 **Phase 1: Research & Prototyping (May 2025)**
+### **Phase 1: Research & Prototyping (May 2025)**
 
 **Week 1-2: Literature Review**
 - Analyzed existing video analysis optimization techniques
@@ -144,7 +144,7 @@ Video Length: 2 hours
 - Created initial API integration experiments in `halo/gemini.py`
 - Implemented prototype chunking strategies in `halo/chunkers.py`
 
-### 📅 **Phase 2: Core Algorithm Development (June 2025)**
+### **Phase 2: Core Algorithm Development (June 2025)**
 
 **Week 5-6: HALO Algorithm Design**
 - Formalized hierarchical abstraction approach
@@ -156,7 +156,7 @@ Video Length: 2 hours
 - Developed comprehensive testing suite
 - Performance benchmarking and optimization
 
-### 📅 **Phase 3: Production Package (July 2025)**
+### **Phase 3: Production Package (July 2025)**
 
 **Week 9-10: Package Architecture**
 - Migrated from prototype to production code (`halo_video/`)
@@ -168,7 +168,7 @@ Video Length: 2 hours
 - PyPI package preparation and metadata
 - Cross-platform testing and validation
 
-### 📅 **Phase 4: Final Polish (August 2025)**
+### **Phase 4: Final Polish (August 2025)**
 
 **Week 13-14: PyPI Publication**
 - Published initial versions (v1.0.0 - v1.0.2) with bug fixes
@@ -182,9 +182,9 @@ Video Length: 2 hours
 
 ---
 
-## 🔬 Research Contributions
+## Research Contributions
 
-### 📚 **Academic Impact**
+### **Academic Impact**
 
 1. **Multi-Modal Video Analysis Architecture**
    - I developed a novel approach combining audio and visual data analysis
@@ -201,7 +201,7 @@ Video Length: 2 hours
    - I designed intelligent caching strategies with content similarity detection
    - My batch processing optimization significantly improves throughput
 
-### 📄 **Publications & Presentations**
+### **Publications & Presentations**
 
 **Research Paper** (In Preparation):
 - Title: "HALO: A Novel Approach to Cost-Effective Video Analysis Using Multi-Modal AI"
@@ -215,9 +215,9 @@ Video Length: 2 hours
 
 ---
 
-## 🌟 Impact & Applications
+## Impact & Applications
 
-### 🎯 **Real-World Applications**
+### **Real-World Applications**
 
 1. **Educational Technology**
    - Automated lecture content analysis and summarization
@@ -239,7 +239,7 @@ Video Length: 2 hours
    - Security footage analysis and incident detection
    - Marketing content optimization and A/B testing
 
-### 📈 **Community Adoption**
+### **Community Adoption**
 
 **PyPI Statistics** (As of August 2025):
 - **Downloads**: 1,000+ in first month
@@ -254,21 +254,21 @@ Video Length: 2 hours
 
 ---
 
-## 🔮 Future Roadmap
+## Future Roadmap
 
-### 📅 **Short-term (3-6 months)**
+### **Short-term (3-6 months)**
 - **Real-time Processing**: Live video stream analysis capabilities
 - **Advanced Models**: Integration with GPT-4V and other vision models
 - **Performance Optimization**: Further improvements to processing speed
 - **Mobile Support**: Cross-platform mobile application development
 
-### 📅 **Medium-term (6-12 months)**
+### **Medium-term (6-12 months)**
 - **Enterprise Features**: Scalability and enterprise-grade functionality
 - **Cloud Integration**: AWS, GCP, Azure deployment options
 - **Advanced Analytics**: Detailed performance metrics and reporting
 - **API Extensions**: RESTful API for integration with other systems
 
-### 📅 **Long-term (1+ years)**
+### **Long-term (1+ years)**
 - **Research Extensions**: Academic collaboration and new research directions
 - **Industry Partnerships**: Collaboration with media and tech companies
 - **Educational Integration**: Curriculum development and teaching materials
@@ -276,21 +276,21 @@ Video Length: 2 hours
 
 ---
 
-## 🎓 Learning Outcomes & Skills Developed
+## Learning Outcomes & Skills Developed
 
-### 💻 **Technical Skills**
+### **Technical Skills**
 - **Advanced Python Development**: Production-ready package development
 - **AI/ML Integration**: Working with large language models and vision APIs
 - **Performance Optimization**: Algorithm optimization and resource management
 - **Software Architecture**: Modular design and scalable system architecture
 
-### 🔬 **Research Skills**
+### **Research Skills**
 - **Literature Review**: Comprehensive analysis of existing work
 - **Experimental Design**: Systematic performance evaluation and benchmarking
 - **Scientific Writing**: Documentation and academic paper preparation
 - **Open Science**: Community contribution and knowledge sharing
 
-### 🤝 **Professional Skills**
+### **Professional Skills**
 - **Project Management**: Timeline management and milestone achievement
 - **Technical Communication**: Documentation and user experience design
 - **Community Engagement**: Open source contribution and user support
@@ -311,7 +311,7 @@ LinkedIn: [linkedin.com/in/jeet-dekivadia](https://linkedin.com/in/jeet-dekivadi
 - **Open Source**: Active maintainer seeking contributors and users
 - **Education**: Available for talks, workshops, and educational content
 
-### 🌟 **Acknowledgments**
+### **Acknowledgments**
 - **Google Summer of Code** for providing this incredible research opportunity
 - **Google DeepMind** mentors for guidance and technical expertise
 - **Google Gemini Team** for API access and support
@@ -319,9 +319,9 @@ LinkedIn: [linkedin.com/in/jeet-dekivadia](https://linkedin.com/in/jeet-dekivadi
 
 ---
 
-## 📚 References & Resources
+## References & Resources
 
-### 📖 **Key Papers & Research**
+### **Key Papers & Research**
 1. "Attention Is All You Need" - Transformer architecture foundations
 2. "CLIP: Learning Transferable Visual Representations" - Vision-language models
 3. "Flamingo: A Visual Language Model for Few-Shot Learning" - Multimodal AI
@@ -333,7 +333,7 @@ LinkedIn: [linkedin.com/in/jeet-dekivadia](https://linkedin.com/in/jeet-dekivadi
 - **Rich**: Professional terminal interface development
 - **PyPI**: Python package distribution and management
 
-### 🔗 **External Links**
+### **External Links**
 - **Google Summer of Code**: https://summerofcode.withgoogle.com/
 - **Google DeepMind**: https://deepmind.google/
 - **HALO Video on PyPI**: https://pypi.org/project/halo-video/

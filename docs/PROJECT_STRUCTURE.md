@@ -17,13 +17,13 @@ google-deepmind/
 │   ├── MANIFEST.in              # Package manifest for distribution
 │   └── requirements.txt         # Core requirements
 │
-├── 🧪 Research & Development
+├── Research & Development
 │   ├── halo/                    # Research prototypes and experiments
 │   ├── demo.ipynb               # Interactive Jupyter demonstrations
 │   ├── demo*.py                 # Standalone demonstration scripts
 │   └── test_*.py                # Comprehensive test suites
 │
-├── 📚 Documentation
+├── Documentation
 │   ├── README.md                # Main project documentation
 │   ├── HALO_README.md           # HALO Video package documentation
 │   ├── GSoC_PROJECT_DOCUMENTATION.md # Complete project documentation
@@ -32,14 +32,14 @@ google-deepmind/
 │   ├── PACKAGE.md               # PyPI package information
 │   └── PUBLISH.md               # Publishing guidelines
 │
-├── 🔧 Configuration & Utilities
+├── Configuration & Utilities
 │   ├── .github/                 # GitHub workflows and templates
 │   ├── .gitignore              # Git ignore rules
 │   ├── LICENSE                  # MIT License
 │   ├── install.sh              # Linux/macOS installation script
 │   └── install.bat             # Windows installation script
 │
-└── 📊 Data & Results
+└── Data & Results
     ├── context_cache.db         # SQLite cache database
     ├── results.json             # Performance benchmarking results
     └── config.py                # Global configuration settings
@@ -144,7 +144,7 @@ halo_video/
 
 ---
 
-## 🧪 Research & Development: `halo/`
+## Research & Development: `halo/`
 
 Research prototypes and experimental implementations developed during the GSoC project.
 
@@ -162,7 +162,7 @@ halo/
 └── cli.py                       # Research CLI tools
 ```
 
-### 📚 **Research Documentation**
+### **Research Documentation**
 
 #### **`chunkers.py` - Content Chunking Research**
 ```python
@@ -208,7 +208,7 @@ halo/
 
 ---
 
-## 🎬 Demonstrations & Examples
+## Demonstrations & Examples
 
 ### 📓 **Interactive Demonstrations**
 
@@ -273,9 +273,9 @@ python demo.py --video-url "https://youtube.com/watch?v=example"
 
 ---
 
-## 🧪 Testing Infrastructure
+## Testing Infrastructure
 
-### 🎯 **Test Organization**
+### **Test Organization**
 
 ```
 tests/
@@ -294,7 +294,7 @@ tests/
     └── test_scalability.py      # Scalability testing
 ```
 
-### 📊 **Current Test Files**
+### **Current Test Files**
 
 #### **`test_basic.py` - Core Functionality Tests**
 ```python
@@ -340,9 +340,9 @@ tests/
 
 ---
 
-## 📚 Documentation Structure
+## Documentation Structure
 
-### 📖 **Documentation Hierarchy**
+### **Documentation Hierarchy**
 
 #### **`README.md` - Main Project Documentation**
 - Complete project overview and GSoC context
@@ -376,7 +376,7 @@ tests/
 
 ---
 
-## 🔧 Configuration & Utilities
+## Configuration & Utilities
 
 ### ⚙️ **Configuration Files**
 
@@ -411,7 +411,7 @@ rich>=13.7.0
 - Cross-platform compatibility settings
 ```
 
-### 🛠️ **Installation Scripts**
+### **Installation Scripts**
 
 #### **`install.sh` - Linux/macOS Installation**
 ```bash
@@ -433,7 +433,7 @@ REM - Package installation and configuration
 
 ---
 
-## 📊 Data & Results
+## Data & Results
 
 ### 💾 **Data Files**
 
@@ -464,7 +464,7 @@ REM - Package installation and configuration
 
 ## 🚀 GitHub Integration
 
-### 🔄 **GitHub Workflows** (`.github/workflows/`)
+### **GitHub Workflows** (`.github/workflows/`)
 
 ```yaml
 # Planned workflows:
