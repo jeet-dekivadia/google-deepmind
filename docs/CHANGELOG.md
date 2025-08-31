@@ -8,25 +8,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.5] - 2025-08-30 - Final GSoC Submission
 
 ### 🎓 **Final GSoC Submission Release**
-- 📋 **Comprehensive PyPI Experience**: Complete overhaul of package presentation and documentation
-- 🌟 **Professional README**: Detailed project description with academic context and technical specifications
-- 📧 **Contact Information**: Updated with correct email (jeet.university@gmail.com) and repository links
-- 🔗 **Repository Links**: Proper linking to https://github.com/jeet-dekivadia/google-deepmind
+- **Comprehensive PyPI Experience**: Complete overhaul of package presentation and documentation
+- **Professional README**: Detailed project description with academic context and technical specifications
+- **Contact Information**: Updated with correct email (jeet.university@gmail.com) and repository links
+- **Repository Links**: Proper linking to https://github.com/jeet-dekivadia/google-deepmind
 - 📖 **Enhanced Documentation**: Comprehensive contributing guide and project information
 
 ### Improved
-- 🎯 **Project Description**: Clear explanation of HALO's purpose and optimization benefits
-- 📊 **Performance Metrics**: Added concrete performance improvement statistics
-- 🏗️ **Technical Architecture**: Detailed component breakdown and system design
-- 📚 **Academic Context**: Proper GSoC 2025 and Google DeepMind attribution
-- 💼 **Professional Presentation**: Production-ready package with impressive feature descriptions
-- 🚀 **User Journey**: Optimized experience from PyPI discovery to CLI usage
+- **Project Description**: Clear explanation of HALO's purpose and optimization benefits
+- **Performance Metrics**: Added concrete performance improvement statistics
+- **Technical Architecture**: Detailed component breakdown and system design
+- **Academic Context**: Proper GSoC 2025 and Google DeepMind attribution
+- **Professional Presentation**: Production-ready package with impressive feature descriptions
+- **User Journey**: Optimized experience from PyPI discovery to CLI usage
 
 ### Enhanced
-- 🎨 **CLI Welcome Messages**: Professional first-time user experience with clear project context
-- 📦 **Post-Install Experience**: Comprehensive welcome message with feature highlights
-- 🔧 **Package Metadata**: Updated keywords, descriptions, and contact information for better discoverability
-- 📈 **Project Status**: Clear indication of production readiness and maintenance status
+- **CLI Welcome Messages**: Professional first-time user experience with clear project context
+- **Post-Install Experience**: Comprehensive welcome message with feature highlights
+- **Package Metadata**: Updated keywords, descriptions, and contact information for better discoverability
+- **Project Status**: Clear indication of production readiness and maintenance status
 
 # Changelog
 
@@ -53,7 +53,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [1.0.7] - 2025-08-30 - Enhanced Reliability & Performance
 
-### 🔧 Critical Bug Fixes & Improvements
+### Critical Bug Fixes & Improvements
 This release focuses on fixing key issues and enhancing the overall reliability of the Advanced Video Analysis System.
 
 ### Fixed
@@ -102,7 +102,7 @@ This release focuses on fixing key issues and enhancing the overall reliability 
 
 ## [1.0.6] - 2025-08-30 - Perfect Interactive Video QA System
 
-### 🎯 Major Release - Interactive Video QA System
+### Major Release - Interactive Video QA System
 This release transforms HALO into a polished, professional Interactive Video QA System.
 
 ### Added
@@ -139,7 +139,7 @@ This release transforms HALO into a polished, professional Interactive Video QA 
 
 ---
 
-### 🎓 GSoC 2025 Milestone
+### GSoC 2025 Milestone
 This release represents the final submission for Google Summer of Code 2025 at Google DeepMind.
 
 ### Added
@@ -258,7 +258,7 @@ This release represents the final submission for Google Summer of Code 2025 at G
 
 ## [1.0.0] - 2025-01-XX - Initial Release
 
-### 🚀 Project Launch
+### Project Launch
 Initial release of HALO Video as part of Google Summer of Code 2025 at Google DeepMind.
 
 ### Core Features
@@ -284,10 +284,10 @@ This project follows [Semantic Versioning](https://semver.org/):
 - **PATCH**: Backward-compatible bug fixes
 
 ### Release Types
-- **🎓 Academic Milestones**: Major GSoC deliverables and research milestones
-- **🚀 Feature Releases**: New capabilities and significant improvements
-- **� Maintenance Releases**: Bug fixes and minor improvements
-- **📚 Documentation Releases**: Major documentation updates and improvements
+- **Academic Milestones**: Major GSoC deliverables and research milestones
+- **Feature Releases**: New capabilities and significant improvements
+- **Maintenance Releases**: Bug fixes and minor improvements
+- **Documentation Releases**: Major documentation updates and improvements
 
 ---
 
@@ -339,54 +339,54 @@ We welcome contributions from:
 ## [1.0.2] - 2024-12-28
 
 ### Added
-- 🔧 **Comprehensive CLI Commands**: Interactive menu system with help, version, config management
-- 🛠️ **FFmpeg Auto-Installation**: Automatic FFmpeg detection and installation via imageio-ffmpeg
-- 📋 **Command Line Arguments**: Support for --version, --config, --reset, --upgrade-check flags
-- 🎯 **User Guidance**: Comprehensive help system and first-time user onboarding
-- ⬆️ **Update Checker**: Built-in package update detection and recommendations
-- 🎨 **Professional UI**: Enhanced welcome messages, menus, and user guidance
+- **Comprehensive CLI Commands**: Interactive menu system with help, version, config management
+- **FFmpeg Auto-Installation**: Automatic FFmpeg detection and installation via imageio-ffmpeg
+- **Command Line Arguments**: Support for --version, --config, --reset, --upgrade-check flags
+- **User Guidance**: Comprehensive help system and first-time user onboarding
+- **Update Checker**: Built-in package update detection and recommendations
+- **Professional UI**: Enhanced welcome messages, menus, and user guidance
 
 ### Improved
-- 🚀 **User Experience**: Step-by-step guidance for new users after pip install
-- 📖 **Documentation**: Comprehensive help system and command explanations
-- 🔄 **Configuration Management**: Easy API key management with view/reset options
-- 💻 **Cross-Platform**: Better FFmpeg handling for Windows, macOS, and Linux
-- 🎪 **Interactive Menus**: Rich terminal interface with numbered options
+- **User Experience**: Step-by-step guidance for new users after pip install
+- **Documentation**: Comprehensive help system and command explanations
+- **Configuration Management**: Easy API key management with view/reset options
+- **Cross-Platform**: Better FFmpeg handling for Windows, macOS, and Linux
+- **Interactive Menus**: Rich terminal interface with numbered options
 
 ### Fixed
-- 🛠️ **FFmpeg Detection**: Automatic FFmpeg installation and platform-specific guidance
-- 📦 **Installation Experience**: Clear post-installation instructions and guidance
-- 🔧 **Command Structure**: Proper CLI argument parsing and error handling
+- **FFmpeg Detection**: Automatic FFmpeg installation and platform-specific guidance
+- **Installation Experience**: Clear post-installation instructions and guidance
+- **Command Structure**: Proper CLI argument parsing and error handling
 
 ## [1.0.1] - 2024-12-28
 
 ### Fixed
-- 🔧 **API Key Input**: Fixed API key input display issues with multiple fallback input methods
-- 🛠️ **API Key Validation**: Added immediate API key testing after entry to ensure it works
-- 🔍 **Error Handling**: Improved error handling for API calls and empty responses
-- ⚡ **Better Debugging**: Enhanced error messages and warnings for troubleshooting
-- 🔐 **Secure Input**: Multiple input methods for API key entry (hidden input with fallbacks)
+- **API Key Input**: Fixed API key input display issues with multiple fallback input methods
+- **API Key Validation**: Added immediate API key testing after entry to ensure it works
+- **Error Handling**: Improved error handling for API calls and empty responses
+- **Better Debugging**: Enhanced error messages and warnings for troubleshooting
+- **Secure Input**: Multiple input methods for API key entry (hidden input with fallbacks)
 
 ### Improved
-- ✅ **API Key Format Validation**: Basic validation of API key format before saving
-- 🎯 **User Experience**: Better prompts and confirmation messages
-- 🚨 **Error Recovery**: Graceful handling of API failures with meaningful messages
-- 🔄 **Reliability**: More robust initialization of Gemini models and predictors
+- **API Key Format Validation**: Basic validation of API key format before saving
+- **User Experience**: Better prompts and confirmation messages
+- **Error Recovery**: Graceful handling of API failures with meaningful messages
+- **Reliability**: More robust initialization of Gemini models and predictors
 
 ## [1.0.0] - 2024-12-28
 
 ### Added
-- 🎥 Complete YouTube video analysis with audio transcription and visual frame analysis
-- 🤖 Interactive CLI powered by Google Gemini AI for intelligent Q&A
-- 👁️ Gemini Vision API integration for frame-by-frame visual analysis
-- 🎵 OpenAI Whisper integration for high-quality audio transcription
-- ⚡ Optimized frame extraction (1 frame per 15 seconds) for efficient processing
-- 💾 Smart caching system to minimize API calls and reduce costs
-- 🎨 Beautiful Rich-based CLI with progress bars and styled output
-- 🔐 Secure API key management with local storage
-- 🌍 Cross-platform support (Windows, macOS, Linux)
-- 📊 Intelligent context chunking for optimal AI performance
-- 🎯 Support for both content-based and visual questions
+- Complete YouTube video analysis with audio transcription and visual frame analysis
+- Interactive CLI powered by Google Gemini AI for intelligent Q&A
+- Gemini Vision API integration for frame-by-frame visual analysis
+- OpenAI Whisper integration for high-quality audio transcription
+- Optimized frame extraction (1 frame per 15 seconds) for efficient processing
+- Smart caching system to minimize API calls and reduce costs
+- Beautiful Rich-based CLI with progress bars and styled output
+- Secure API key management with local storage
+- Cross-platform support (Windows, macOS, Linux)
+- Intelligent context chunking for optimal AI performance
+- Support for both content-based and visual questions
 
 ### Technical Features
 - Direct video stream processing without large file storage

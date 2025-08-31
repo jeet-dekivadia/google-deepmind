@@ -7,7 +7,7 @@ Thank you for your interest in contributing to **HALO** (Hierarchical Abstractio
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Project Overview](#project-overview)
 - [Getting Started](#getting-started)
@@ -21,11 +21,11 @@ Thank you for your interest in contributing to **HALO** (Hierarchical Abstractio
 
 ---
 
-## 🎯 Project Overview
+## Project Overview
 
 This repository contains the complete GSoC 2025 project focusing on AI-powered video analysis optimization. The main deliverable is **HALO Video**, a production-ready Python package, along with research prototypes and comprehensive documentation.
 
-### 🏗️ **Repository Structure**
+### **Repository Structure**
 ```
 google-deepmind/
 ├── halo_video/          # Production package (PyPI: halo-video)
@@ -36,7 +36,7 @@ google-deepmind/
 └── pyproject.toml     # Package configuration
 ```
 
-### 🎓 **Academic Context**
+### **Academic Context**
 - **Program**: Google Summer of Code 2025
 - **Organization**: Google DeepMind
 - **Focus**: Video analysis optimization and AI efficiency
@@ -44,7 +44,7 @@ google-deepmind/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -82,9 +82,9 @@ pytest tests/ -v
 
 ---
 
-## 🛠️ Development Environment
+## Development Environment
 
-### 🧰 **Required Development Tools**
+### **Required Development Tools**
 
 ```bash
 # Code formatting and linting
@@ -100,7 +100,7 @@ pip install sphinx sphinx-rtd-theme
 pip install jupyter notebook
 ```
 
-### 📁 **Working with Different Components**
+### **Working with Different Components**
 
 #### **HALO Video Package** (`halo_video/`)
 Production-ready package published on PyPI.
@@ -143,9 +143,9 @@ jupyter notebook demo.ipynb
 
 ---
 
-## 📝 Code Standards
+## Code Standards
 
-### 🐍 **Python Style Guide**
+### **Python Style Guide**
 
 We follow **PEP 8** with specific modifications for academic/research code:
 
@@ -175,7 +175,7 @@ def analyze_video_content(
     """
 ```
 
-### 🔧 **Code Formatting**
+### **Code Formatting**
 
 ```bash
 # Format all code
@@ -191,7 +191,7 @@ flake8 halo_video/ halo/
 mypy halo_video/ --strict
 ```
 
-### 📚 **Documentation Standards**
+### **Documentation Standards**
 
 - **Public functions**: Complete Google-style docstrings
 - **Research code**: Detailed comments explaining algorithms
@@ -200,9 +200,9 @@ mypy halo_video/ --strict
 
 ---
 
-## 🧪 Testing Guidelines
+## Testing Guidelines
 
-### 🎯 **Testing Strategy**
+### **Testing Strategy**
 
 Our testing approach covers multiple levels:
 
@@ -223,7 +223,7 @@ pytest tests/e2e/ -v
 pytest --cov=halo_video --cov=halo --cov-report=html
 ```
 
-### 📋 **Test Categories**
+### **Test Categories**
 
 #### **Unit Tests** (`tests/unit/`)
 ```python
@@ -257,7 +257,7 @@ def test_halo_optimization_performance():
     # Verify performance improvement targets
 ```
 
-### 🔒 **Test Environment Setup**
+### **Test Environment Setup**
 
 ```bash
 # Set up test environment variables
@@ -272,9 +272,9 @@ pytest -m "performance"      # Only performance tests
 
 ---
 
-## 🔄 Pull Request Process
+## Pull Request Process
 
-### 📝 **Before Submitting**
+### **Before Submitting**
 
 1. **Update Documentation**
    - Ensure all public functions have docstrings
@@ -297,7 +297,7 @@ pytest -m "performance"      # Only performance tests
    - Run benchmarks if modifying core algorithms
    - Update performance documentation if improved
 
-### 🌿 **Branch Naming Convention**
+### **Branch Naming Convention**
 
 ```bash
 # Feature branches
@@ -317,7 +317,7 @@ research/alternative-sampling-strategies
 research/performance-benchmarking
 ```
 
-### 💬 **Commit Message Format**
+### **Commit Message Format**
 
 ```bash
 # Format: <type>(<scope>): <subject>
@@ -331,92 +331,92 @@ perf(processing): optimize frame extraction algorithm
 research(sampling): experiment with adaptive intervals
 ```
 
-### 📋 **PR Description Template**
+### **PR Description Template**
 
 ```markdown
-## 🎯 Purpose
+## Purpose
 Brief description of what this PR accomplishes.
 
-## 🔧 Changes Made
+## Changes Made
 - Detailed list of changes
 - New features or bug fixes
 - Performance improvements
 
-## 🧪 Testing
+## Testing
 - [ ] Unit tests pass
 - [ ] Integration tests pass  
 - [ ] Performance tests pass
 - [ ] Manual testing completed
 
-## 📚 Documentation
+## Documentation
 - [ ] Public functions documented
 - [ ] README updated if needed
 - [ ] Examples added/updated
 
-## 🔍 Performance Impact
+## Performance Impact
 - No performance impact / Improved performance by X%
 - Benchmarking results (if applicable)
 
-## 📸 Screenshots/Examples
+## Screenshots/Examples
 (If applicable - CLI output, charts, etc.)
 ```
 
 ---
 
-## 🐛 Issue Reporting
+## Issue Reporting
 
-### 🚨 **Bug Reports**
+### **Bug Reports**
 
 Use our detailed bug report template:
 
 ```markdown
-## 🐛 Bug Description
+## Bug Description
 Clear and concise description of the bug.
 
-## 🔄 Steps to Reproduce
+## Steps to Reproduce
 1. Step one
 2. Step two  
 3. Step three
 
-## 📋 Expected Behavior
+## Expected Behavior
 What should happen.
 
-## 💥 Actual Behavior
+## Actual Behavior
 What actually happens.
 
-## 🖥️ Environment
+## Environment
 - OS: [e.g., macOS 12.0, Ubuntu 20.04, Windows 11]
 - Python: [e.g., 3.9.7]
 - HALO Video: [e.g., 1.0.5]
 - Gemini API: [if applicable]
 
-## 📄 Additional Context
+## Additional Context
 - Error messages and stack traces
 - Log files
 - Screenshots
 - Sample video URLs (if applicable)
 ```
 
-### 💡 **Feature Requests**
+### **Feature Requests**
 
 ```markdown
-## 🎯 Problem Statement
+## Problem Statement
 What problem does this solve?
 
-## 💡 Proposed Solution  
+## Proposed Solution  
 How should it work?
 
-## 🔄 Alternatives Considered
+## Alternatives Considered
 Other approaches you've thought about.
 
-## 📈 Expected Impact
+## Expected Impact
 Who benefits and how?
 
-## 🔗 Additional Context
+## Additional Context
 Use cases, examples, mockups, academic references.
 ```
 
-### 🏷️ **Issue Labels**
+### **Issue Labels**
 
 - `bug`: Something isn't working correctly
 - `enhancement`: New feature or improvement
@@ -429,9 +429,9 @@ Use cases, examples, mockups, academic references.
 
 ---
 
-## 🎓 Research Collaboration
+## Research Collaboration
 
-### 📚 **Academic Contributions**
+### **Academic Contributions**
 
 We welcome academic collaborations:
 
@@ -452,7 +452,7 @@ We welcome academic collaborations:
 - Performance evaluation frameworks
 - Comparative studies with other tools
 
-### 📝 **Academic Guidelines**
+### **Academic Guidelines**
 
 ```markdown
 # For Academic Contributors
@@ -464,7 +464,7 @@ We welcome academic collaborations:
 5. **Validation**: Peer review and community feedback
 ```
 
-### 🤝 **Collaboration Process**
+### **Collaboration Process**
 
 1. **Initial Discussion**: Open GitHub issue with research proposal
 2. **Review**: Community and maintainer feedback
@@ -475,9 +475,9 @@ We welcome academic collaborations:
 
 ---
 
-## 👥 Community Guidelines
+## Community Guidelines
 
-### 🤝 **Code of Conduct**
+### **Code of Conduct**
 
 - **Respectful**: Treat all community members with respect
 - **Inclusive**: Welcome people of all backgrounds and skill levels
@@ -485,14 +485,14 @@ We welcome academic collaborations:
 - **Collaborative**: Work together towards common goals
 - **Academic**: Maintain academic integrity and standards
 
-### 💬 **Communication Channels**
+### **Communication Channels**
 
 - **GitHub Issues**: Bug reports, feature requests, discussions
 - **GitHub Discussions**: General questions and community discussion
 - **Email**: jeet.university@gmail.com for direct contact
 - **Academic**: Research collaboration inquiries
 
-### 🏆 **Recognition**
+### **Recognition**
 
 Contributors will be recognized in:
 
@@ -503,9 +503,9 @@ Contributors will be recognized in:
 
 ---
 
-## 📞 Getting Help
+## Getting Help
 
-### 🆘 **Support Resources**
+### **Support Resources**
 
 1. **Documentation**: Start with README and project docs
 2. **Examples**: Check demo files and Jupyter notebooks
@@ -513,7 +513,7 @@ Contributors will be recognized in:
 4. **Discussions**: Ask questions in GitHub Discussions
 5. **Direct Contact**: Email for complex research questions
 
-### 🎯 **Quick Help**
+### **Quick Help**
 
 ```bash
 # Common commands
@@ -523,7 +523,7 @@ pytest tests/ -v               # Run tests
 black . && flake8 .           # Code formatting check
 ```
 
-### 📚 **Learning Resources**
+### **Learning Resources**
 
 - **[GSoC Project Documentation](./GSoC_PROJECT_DOCUMENTATION.md)**: Complete project overview
 - **[HALO Video README](./HALO_README.md)**: Package-specific documentation
@@ -532,21 +532,21 @@ black . && flake8 .           # Code formatting check
 
 ---
 
-## 🎯 Future Roadmap
+## Future Roadmap
 
-### 📅 **Immediate (Next 3 months)**
+### **Immediate (Next 3 months)**
 - Community feedback integration
 - Performance optimizations
 - Additional demo examples
 - Documentation improvements
 
-### 📅 **Medium-term (3-6 months)**  
+### **Medium-term (3-6 months)**  
 - Real-time processing capabilities
 - Additional AI model integrations
 - Enterprise features
 - Mobile platform support
 
-### 📅 **Long-term (6+ months)**
+### **Long-term (6+ months)**
 - Academic research extensions
 - Industry partnerships  
 - Educational curriculum development

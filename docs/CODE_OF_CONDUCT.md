@@ -1,33 +1,33 @@
 # Code of Conduct
 
-## 🎓 Our Commitment
+## Our Commitment
 
 As contributors and maintainers of the HALO Video project, part of Google Summer of Code 2025 at Google DeepMind, we pledge to make participation in our project and community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
-## 🌟 Our Standards
+## Our Standards
 
 ### Positive Behavior Examples
 We encourage behavior that contributes to a positive environment:
 
-**🤝 Respectful Collaboration**
+**Respectful Collaboration**
 - Using welcoming and inclusive language
 - Being respectful of differing viewpoints and experiences
 - Gracefully accepting constructive criticism
 - Focusing on what is best for the community and research goals
 
-**🎓 Academic Excellence**
+**Academic Excellence**
 - Providing accurate and well-researched information
 - Citing sources and giving proper attribution
 - Engaging in constructive scientific discourse
 - Sharing knowledge and learning opportunities
 
-**🔬 Research Integrity**
+**Research Integrity**
 - Honest reporting of results and findings
 - Transparent methodology and documentation
 - Ethical use of AI and data processing tools
 - Responsible publication and sharing of research
 
-**💻 Technical Professionalism**
+**Technical Professionalism**
 - Writing clean, documented, and maintainable code
 - Providing helpful and constructive code reviews
 - Sharing knowledge through clear documentation
@@ -36,25 +36,25 @@ We encourage behavior that contributes to a positive environment:
 ### Unacceptable Behavior
 Examples of unacceptable behavior include:
 
-**🚫 Harassment and Discrimination**
+**Harassment and Discrimination**
 - The use of sexualized language or imagery
 - Personal attacks, trolling, or insulting/derogatory comments
 - Public or private harassment
 - Publishing others' private information without explicit permission
 
-**📚 Academic Misconduct**
+**Academic Misconduct**
 - Plagiarism or misrepresentation of work
 - Fabrication or falsification of research data
 - Misuse of intellectual property
 - Violation of research ethics guidelines
 
-**💻 Technical Misconduct**
+**Technical Misconduct**
 - Deliberately introducing bugs or security vulnerabilities
 - Spam or inappropriate promotional content
 - Violation of API terms of service
 - Misuse of computational resources
 
-## 🛡️ Enforcement Responsibilities
+## Enforcement Responsibilities
 
 ### Project Maintainers
 Project maintainers are responsible for:
@@ -69,13 +69,13 @@ This project adheres to:
 - [Google's Community Guidelines](https://about.google/community-guidelines/)
 - [Google DeepMind Research Ethics](https://deepmind.google/about/ethics-safety/)
 
-## 📞 Reporting Guidelines
+## Reporting Guidelines
 
 ### How to Report
 If you experience or witness unacceptable behavior, please report it:
 
 **Primary Contact:**
-- **Email**: [jeet.dekivadia@example.com](mailto:jeet.dekivadia@example.com)
+- **Email**: [jeet.univesitu@gmail.com](mailto:jeet.university@gmail.com)
 - **Subject**: `[CODE OF CONDUCT] Report`
 
 **GSoC Channels:**
@@ -125,17 +125,17 @@ When reporting, please provide:
 ### Possible Consequences
 Depending on severity, consequences may include:
 
-**📝 Warning**
+**Warning**
 - Private written warning
 - Clarification of expectations
 - Opportunity for discussion and learning
 
-**⏸️ Temporary Restrictions**
+**⏸Temporary Restrictions**
 - Temporary suspension from project participation
 - Limited access to project resources
 - Supervision of future contributions
 
-**🚫 Permanent Ban**
+**Permanent Ban**
 - Permanent removal from all project spaces
 - Public statement about the violation (if appropriate)
 - Reporting to relevant authorities (if legally required)
@@ -145,7 +145,7 @@ Depending on severity, consequences may include:
 - Independent review by GSoC administrators
 - Final decisions will be communicated clearly
 
-## 🎯 Scope and Application
+## Scope and Application
 
 ### Where This Applies
 This Code of Conduct applies to:
@@ -161,7 +161,7 @@ As a GSoC project, additional standards apply:
 - **Mentorship**: Respectful student-mentor relationships
 - **Publication**: Ethical research dissemination
 
-## 🌍 Community Guidelines
+## Community Guidelines
 
 ### Inclusivity and Accessibility
 We strive to create an inclusive environment:
@@ -184,7 +184,7 @@ We embrace:
 - **Sharing**: Contributing back to the community
 - **Innovation**: Encouraging creative and novel approaches
 
-## 📚 Resources and Support
+## Resources and Support
 
 ### Educational Resources
 - [Inclusive Language Guide](https://developers.google.com/style/inclusive-documentation)
@@ -198,7 +198,7 @@ We embrace:
 - **Professional Organizations**: IEEE, ACM ethics guidelines
 - **Mental Health**: Remember that academic and technical work can be stressful
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 This Code of Conduct is adapted from:
 - [Contributor Covenant](https://www.contributor-covenant.org/) v2.1
@@ -206,7 +206,7 @@ This Code of Conduct is adapted from:
 - [Google Community Guidelines](https://about.google/community-guidelines/)
 - [Association for Computing Machinery Code of Ethics](https://www.acm.org/code-of-ethics)
 
-## 📝 Amendments
+## Amendments
 
 This Code of Conduct may be updated to:
 - Reflect evolving community standards
@@ -225,4 +225,4 @@ Changes will be:
 **Version**: 1.0  
 **Last Updated**: January 2025  
 **GSoC 2025 Project** - Google DeepMind  
-**Contact**: [jeet.dekivadia@example.com](mailto:jeet.dekivadia@example.com)
+**Contact**: [jeet.university@gmail.com](mailto:jeet.university@gmail.com)

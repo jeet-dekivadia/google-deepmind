@@ -7,7 +7,7 @@ assignees: ['jeet-dekivadia']
 
 ---
 
-## 📖 Documentation Issue Type
+## Documentation Issue Type
 - [ ] Missing documentation
 - [ ] Incorrect information
 - [ ] Unclear explanation
@@ -17,7 +17,7 @@ assignees: ['jeet-dekivadia']
 - [ ] Academic citation issues
 - [ ] API documentation problems
 
-## 📍 Location
+## Location
 **File(s) affected:**
 - [ ] README.md
 - [ ] GSoC_PROJECT_DOCUMENTATION.md
@@ -29,25 +29,25 @@ assignees: ['jeet-dekivadia']
 
 **Section/Line:** Please specify the section or line number if applicable.
 
-## 📝 Current Content
+## Current Content
 Paste the current documentation text that needs to be addressed:
 ```
 [Current text here]
 ```
 
-## ✅ Suggested Improvement
+## Suggested Improvement
 Describe what should be changed or added:
 ```
 [Suggested text or explanation here]
 ```
 
-## 🎓 Academic Context
+## Academic Context
 If this relates to research or academic documentation:
 - **Research Accuracy**: Does this affect the accuracy of research claims?
 - **Citation Needed**: Does this need academic citations or references?
 - **GSoC Relevance**: How does this relate to the GSoC project goals?
 
-## 👥 User Impact
+## User Impact
 - **Audience**: Who would be affected by this documentation issue?
   - [ ] New users
   - [ ] Developers
@@ -61,22 +61,22 @@ If this relates to research or academic documentation:
   - [ ] Medium (minor clarity issue)
   - [ ] Low (nice to have)
 
-## 🔗 Related Issues
+## Related Issues
 - Are there any related issues or pull requests?
 - Does this relate to specific features or bugs?
 
-## 📱 Environment
+## Environment
 If this is related to setup or environment-specific documentation:
 - **OS**: 
 - **Python Version**: 
 - **Package Version**: 
 
-## 🤝 Contribution
+## Contribution
 - [ ] I would be willing to help improve this documentation
 - [ ] I can provide subject matter expertise
 - [ ] I can help with technical writing
 
-## 📚 Additional Context
+## Additional Context
 Add any other context about the documentation issue here, including:
 - Screenshots if applicable
 - Links to external resources
