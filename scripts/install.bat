@@ -45,22 +45,12 @@ echo.
 echo ⬆️  Upgrading pip...
 python -m pip install --upgrade pip
 
-REM Install dependencies
+REM Install package and development dependencies
 echo.
-echo 📚 Installing dependencies...
-pip install -r requirements.txt
+echo 📚 Installing HALO and development dependencies...
+pip install -e ".[dev]"
 if errorlevel 1 (
-    echo ❌ Error: Failed to install dependencies
-    pause
-    exit /b 1
-)
-
-REM Install in development mode
-echo.
-echo 🔧 Installing HALO in development mode...
-pip install -e .
-if errorlevel 1 (
-    echo ❌ Error: Failed to install HALO
+    echo ❌ Error: Failed to install HALO and dependencies
     pause
     exit /b 1
 )
@@ -107,7 +97,7 @@ echo 4. Or start the Jupyter notebook:
 echo    jupyter notebook demo.ipynb
 echo.
 echo 5. Use the CLI:
-echo    halo --help
+echo    halo-video --help
 echo.
 echo 📚 For more information, see README.md
 echo.
