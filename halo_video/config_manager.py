@@ -11,6 +11,8 @@ console = Console()
 
 class ConfigManager:
     """Manages configuration for HALO Video CLI"""
+
+    ENV_API_KEY = "GEMINI_API_KEY"
     
     def __init__(self):
         self.config_dir = Path.home() / ".halo-video"
@@ -23,6 +25,9 @@ class ConfigManager:
     
     def has_api_key(self) -> bool:
         """Check if API key is already configured"""
+        if os.environ.get(self.ENV_API_KEY):
+            return True
+
         if not self.config_file.exists():
             return False
         
@@ -35,6 +40,10 @@ class ConfigManager:
     
     def get_api_key(self) -> str:
         """Get the stored API key"""
+        env_api_key = os.environ.get(self.ENV_API_KEY)
+        if env_api_key:
+            return env_api_key
+
         if not self.config_file.exists():
             raise ValueError("No API key configured. Please run halo-video and enter your API key.")
         
