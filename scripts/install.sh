@@ -33,15 +33,10 @@ echo ""
 echo "⬆️  Upgrading pip..."
 pip install --upgrade pip
 
-# Install dependencies
+# Install package and development dependencies
 echo ""
-echo "📚 Installing dependencies..."
-pip install -r requirements.txt
-
-# Install in development mode
-echo ""
-echo "🔧 Installing HALO in development mode..."
-pip install -e .
+echo "📚 Installing HALO and development dependencies..."
+pip install -e ".[dev]"
 
 echo ""
 echo "✅ HALO installation completed successfully!"
@@ -85,7 +80,7 @@ echo "4. Or start the Jupyter notebook:"
 echo "   jupyter notebook demo.ipynb"
 echo ""
 echo "5. Use the CLI:"
-echo "   halo --help"
+echo "   halo-video --help"
 echo ""
 echo "📚 For more information, see README.md"
 echo ""
