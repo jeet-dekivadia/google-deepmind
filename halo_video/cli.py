@@ -452,7 +452,7 @@ def check_for_updates():
         console.print("[dim]Trying PyPI API...[/dim]")
         result = subprocess.run([
             sys.executable, "-c", 
-            "import requests; import json; r = requests.get('https://pypi.org/pypi/halo-video/json', timeout=10); print(r.json()['info']['version'])"
+            "import json, urllib.request; r = urllib.request.urlopen('https://pypi.org/pypi/halo-video/json', timeout=10); print(json.load(r)['info']['version'])"
         ], capture_output=True, text=True, timeout=15)
         
         if result.returncode == 0 and result.stdout.strip():
