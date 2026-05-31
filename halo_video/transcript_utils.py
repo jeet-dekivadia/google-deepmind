@@ -50,6 +50,9 @@ def find_relevant_chunk(question: str, chunks: List[str]) -> str:
     Finds the most relevant chunk for a question using simple keyword matching.
     (For production, replace with semantic search/embeddings.)
     """
+    if not chunks:
+        return ""
+
     keywords = re.findall(r'\w+', question.lower())
     best_chunk = ''
     best_score = 0
