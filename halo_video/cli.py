@@ -166,12 +166,12 @@ def get_video_info(youtube_url: str) -> Dict[str, Any]:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(youtube_url, download=False)
             return {
-                'title': info.get('title', 'Unknown Title'),
-                'duration': info.get('duration', 0),
-                'thumbnail': info.get('thumbnail', ''),
-                'uploader': info.get('uploader', 'Unknown'),
-                'view_count': info.get('view_count', 0),
-                'upload_date': info.get('upload_date', ''),
+                'title': info.get('title') or 'Unknown Title',
+                'duration': info.get('duration') or 0,
+                'thumbnail': info.get('thumbnail') or '',
+                'uploader': info.get('uploader') or 'Unknown',
+                'view_count': info.get('view_count') or 0,
+                'upload_date': info.get('upload_date') or '',
             }
     except Exception as e:
         console.print(f"[yellow]Warning: Could not fetch video info: {e}[/yellow]")
@@ -186,11 +186,12 @@ def get_video_info(youtube_url: str) -> Dict[str, Any]:
 
 def show_video_preview(video_info: Dict[str, Any], video_id: str):
     """Display a preview of the video information"""
-    duration_min = video_info['duration'] // 60
-    duration_sec = video_info['duration'] % 60
+    duration = video_info.get('duration') or 0
+    duration_min = duration // 60
+    duration_sec = duration % 60
     
     # Format view count
-    views = video_info['view_count']
+    views = video_info.get('view_count') or 0
     if views >= 1000000:
         view_str = f"{views / 1000000:.1f}M views"
     elif views >= 1000:
