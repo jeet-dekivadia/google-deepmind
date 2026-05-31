@@ -13,6 +13,13 @@ def chunk_transcript(transcript: str, max_tokens: int = MAX_CONTEXT_TOKENS, over
     Splits a transcript into overlapping chunks that fit within the max token limit.
     Assumes 1 token ≈ 4 characters (rough estimate, adjust as needed).
     """
+    if max_tokens <= 0:
+        raise ValueError("max_tokens must be greater than 0")
+    if overlap < 0:
+        raise ValueError("overlap must be greater than or equal to 0")
+    if overlap >= max_tokens:
+        raise ValueError("overlap must be smaller than max_tokens")
+
     approx_token_len = max_tokens * 4
     approx_overlap = overlap * 4
     chunks = []
