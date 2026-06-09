@@ -496,6 +496,31 @@ def manage_config():
         console.print("[red]❌ No API key configured[/red]")
         setup_api_key(config_manager)
 
+
+def _prompt_for_api_key() -> Optional[str]:
+    """Prompt for a Gemini API key without swallowing user cancellation."""
+    try:
+        # First try with password=True (hidden input)
+        return Prompt.ask("[bold yellow]Enter your Gemini API key[/bold yellow]", password=True)
+    except (KeyboardInterrupt, EOFError):
+        raise
+    except Exception:
+        pass
+
+    try:
+        # Fallback to regular input if password input fails
+        console.print("[yellow]Note: API key input will be visible[/yellow]")
+        return Prompt.ask("[bold yellow]Enter your Gemini API key[/bold yellow]")
+    except (KeyboardInterrupt, EOFError):
+        raise
+    except Exception:
+        pass
+
+    # Final fallback to built-in input
+    console.print("[yellow]Using basic input mode[/yellow]")
+    return input("Enter your Gemini API key: ")
+
+
 def setup_api_key(config_manager: ConfigManager, force_reset: bool = False):
     """Setup or reset API key with comprehensive handling"""
     if force_reset or not config_manager.has_api_key():
@@ -505,19 +530,11 @@ def setup_api_key(config_manager: ConfigManager, force_reset: bool = False):
         console.print("[dim]Note: Your input will be hidden for security[/dim]")
         
         # Try multiple input methods for better compatibility
-        api_key = None
         try:
-            # First try with password=True (hidden input)
-            api_key = Prompt.ask("[bold yellow]Enter your Gemini API key[/bold yellow]", password=True)
-        except:
-            try:
-                # Fallback to regular input if password input fails
-                console.print("[yellow]Note: API key input will be visible[/yellow]")
-                api_key = Prompt.ask("[bold yellow]Enter your Gemini API key[/bold yellow]")
-            except:
-                # Final fallback to built-in input
-                console.print("[yellow]Using basic input mode[/yellow]")
-                api_key = input("Enter your Gemini API key: ")
+            api_key = _prompt_for_api_key()
+        except (KeyboardInterrupt, EOFError):
+            console.print("\n[yellow]API key setup cancelled.[/yellow]")
+            return False
         
         if not api_key or not api_key.strip():
             console.print("[bold red]❌ No API key provided.[/bold red]")
